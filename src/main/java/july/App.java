@@ -1,7 +1,7 @@
 package july;
 
 /**
- * Input    AND     OR      XOR     NOR     NAND    XNOR    X-exclusive, if both -> 0
+ * Input    AND     OR      XOR     NOR     NAND    XNOR    X-exclusive, if both -> 0  .
  *  00      0       0       0       1         1       1
  *  01      0       1       1       0         1       0
  *  10      0       1       1       0         1       0
