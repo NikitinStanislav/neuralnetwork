@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6791507-684c-43af-96b3-32434b9a3984" name="Changes" comment="third push">
+    <list default="true" id="f6791507-684c-43af-96b3-32434b9a3984" name="Changes" comment="4 - Perceptron AND">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/july/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/july/App.java" afterDir="false" />
     </list>
@@ -90,7 +90,7 @@
       <workItem from="1721346218902" duration="3279000" />
       <workItem from="1721349908868" duration="384000" />
       <workItem from="1721438553815" duration="1122000" />
-      <workItem from="1721684188660" duration="1335000" />
+      <workItem from="1721684188660" duration="6079000" />
     </task>
     <task id="LOCAL-00001" summary="first push to nowhere">
       <option name="closed" value="true" />
@@ -108,7 +108,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721351051245</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="4 - Perceptron AND">
+      <option name="closed" value="true" />
+      <created>1721685542318</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1721685542318</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -134,7 +142,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first push to nowhere" />
     <MESSAGE value="third push" />
-    <option name="LAST_COMMIT_MESSAGE" value="third push" />
+    <MESSAGE value="4 - Perceptron AND" />
+    <option name="LAST_COMMIT_MESSAGE" value="4 - Perceptron AND" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
