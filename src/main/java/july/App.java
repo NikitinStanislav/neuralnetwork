@@ -2,26 +2,31 @@ package july;
 
 /**
  * Input    AND     OR      XOR     NOR     NAND    XNOR    X-exclusive, if both -> 0  .
- *  00      0       0       0       1         1       1
- *  01      0       1       1       0         1       0
- *  10      0       1       1       0         1       0
- *  11      1       1       0       0         0       1
+ * 00      0       0       0       1         1       1
+ * 01      0       1       1       0         1       0
+ * 10      0       1       1       0         1       0
+ * 11      1       1       0       0         0       1
  */
-public class App 
-{
+public class App {
     public static void main(String[] args) {
-        /** input */
-        double[] x = {0, 1};
 
-        /** weigh */
-        double[] w = {0.5, 0.5};
+        for (int i = 0; i < 4; i++) {
+            double x1 = i / 2;
+            double x2 = i % 2;
 
-        /** bias, оно же смещение */
-        double b = 0.5;
+            double output = and(x1, x2);
+
+            System.out.printf("%d%d\t%d\n", (int) x1, (int) x2, (int) output);
+        }
 
     }
 
-    public static double neuron (double [] x, double [] w, double b){
+    static double and(double x1, double x2) {
+        return neuron(new double[]{x1, x2}, new double[]{1, 1}, -1);
+    }
+
+
+    public static double neuron(double[] x, double[] w, double b) {
 
         /** weighted sum */
         double z = 0.0;
