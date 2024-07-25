@@ -10,6 +10,10 @@ public class Matrix {
         double produce(int index);
     }
 
+    public interface ValueProducer {
+        double produce(int index, double value);
+    }
+
     private double[] a;
 
     private int rows;
@@ -31,7 +35,6 @@ public class Matrix {
         }
     }
 
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -48,5 +51,14 @@ public class Matrix {
         return sb.toString();
     }
 
+    public Matrix apply(ValueProducer producer){
+        Matrix result = new Matrix(rows, columns);
+
+        for (int i = 0; i<a.length; i++){
+            result.a[i] = producer.produce(i, a[i]);
+        }
+
+        return result;
+    }
 
 }

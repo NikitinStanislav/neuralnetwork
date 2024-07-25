@@ -7,6 +7,18 @@ import static org.junit.Assert.assertTrue;
 public class MatrixTest {
 
     @Test
+    public void testMultiplyDouble(){
+        Matrix m = new Matrix(3,4,i -> 2*(i-6));
+
+        double x = 0.5;
+
+        Matrix result = m.apply(((index, value) -> x * value));
+
+        System.out.println(m);
+        System.out.println(result);
+    }
+
+    @Test
     public void matrixCreate() {
         Matrix m = new Matrix(3, 4, i -> i*2);
         System.out.println(m.toString());

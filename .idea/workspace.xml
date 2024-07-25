@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6791507-684c-43af-96b3-32434b9a3984" name="Changes" comment="5-5  - OR, XOR, NOR, NAND, XNOR">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/matrix/Matrix.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/matrix/MatrixTest.java" afterDir="false" />
+    <list default="true" id="f6791507-684c-43af-96b3-32434b9a3984" name="Changes" comment="6 - Matrix class, test, toString test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/matrix/Matrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/Matrix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/matrix/MatrixTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/matrix/MatrixTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +62,7 @@
       <recent name="matrix" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MatrixTest.matrixCreate">
+  <component name="RunManager" selected="JUnit.MatrixTest.testMultiplyDouble">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="july.App" />
       <module name="neuralnetwork" />
@@ -125,8 +123,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MatrixTest.testMultiplyDouble" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="neuralnetwork" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="matrix.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="matrix" />
+      <option name="MAIN_CLASS_NAME" value="matrix.MatrixTest" />
+      <option name="METHOD_NAME" value="testMultiplyDouble" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MatrixTest.testMultiplyDouble" />
         <item itemvalue="JUnit.MatrixTest.matrixCreate" />
         <item itemvalue="JUnit.MatrixTest.test" />
         <item itemvalue="Application.App" />
@@ -149,6 +164,7 @@
       <workItem from="1721776190436" duration="1077000" />
       <workItem from="1721777285655" duration="3828000" />
       <workItem from="1721820412429" duration="1440000" />
+      <workItem from="1721872633785" duration="2211000" />
     </task>
     <task id="LOCAL-00001" summary="first push to nowhere">
       <option name="closed" value="true" />
@@ -182,7 +198,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721690571118</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="6 - Matrix class, test, toString test">
+      <option name="closed" value="true" />
+      <created>1721872965175</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1721872965175</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -210,7 +234,8 @@
     <MESSAGE value="third push" />
     <MESSAGE value="4 - Perceptron AND" />
     <MESSAGE value="5-5  - OR, XOR, NOR, NAND, XNOR" />
-    <option name="LAST_COMMIT_MESSAGE" value="5-5  - OR, XOR, NOR, NAND, XNOR" />
+    <MESSAGE value="6 - Matrix class, test, toString test" />
+    <option name="LAST_COMMIT_MESSAGE" value="6 - Matrix class, test, toString test" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
