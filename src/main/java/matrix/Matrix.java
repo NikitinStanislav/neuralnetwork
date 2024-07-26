@@ -1,10 +1,12 @@
 package matrix;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class Matrix {
 
     private static final String NUMBER_FORMAT = "%+10.2f";
+    private static final Double TOLERANCE = 0.0001;
 
     public interface Producer {
         double produce(int index);
@@ -49,6 +51,28 @@ public class Matrix {
             sb.append("\n");
         }
         return sb.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Matrix matrix = (Matrix) o;
+
+        for (int i = 0; i<a.length; i++){
+            if (Math.abs(a[i] - matrix.a[i]) > TOLERANCE){
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(rows, columns);
+        result = 31 * result + Arrays.hashCode(a);
+        return result;
     }
 
     public Matrix apply(ValueProducer producer){
