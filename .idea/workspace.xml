@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6791507-684c-43af-96b3-32434b9a3984" name="Changes" comment="7 - modifying matrices, apply()">
+    <list default="true" id="f6791507-684c-43af-96b3-32434b9a3984" name="Changes" comment="8 - testEquals">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/matrix/Matrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/Matrix.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/matrix/MatrixTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/matrix/MatrixTest.java" afterDir="false" />
@@ -62,20 +62,7 @@
       <recent name="matrix" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MatrixTest.testEquals">
-    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="july.App" />
-      <module name="neuralnetwork" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="matrix.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.MatrixTest.testFormMatrix">
     <configuration name="MatrixTest.matrixCreate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="neuralnetwork" />
       <extension name="coverage">
@@ -92,7 +79,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MatrixTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MatrixTest.testAddMatrices" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="neuralnetwork" />
       <extension name="coverage">
         <pattern>
@@ -102,7 +89,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="matrix" />
       <option name="MAIN_CLASS_NAME" value="matrix.MatrixTest" />
-      <option name="METHOD_NAME" value="test" />
+      <option name="METHOD_NAME" value="testAddMatrices" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -119,6 +106,22 @@
       <option name="PACKAGE_NAME" value="matrix" />
       <option name="MAIN_CLASS_NAME" value="matrix.MatrixTest" />
       <option name="METHOD_NAME" value="testEquals" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MatrixTest.testFormMatrix" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="neuralnetwork" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="matrix.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="matrix" />
+      <option name="MAIN_CLASS_NAME" value="matrix.MatrixTest" />
+      <option name="METHOD_NAME" value="testFormMatrix" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -142,11 +145,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MatrixTest.testFormMatrix" />
+        <item itemvalue="JUnit.MatrixTest.testAddMatrices" />
         <item itemvalue="JUnit.MatrixTest.testEquals" />
         <item itemvalue="JUnit.MatrixTest.testMultiplyDouble" />
         <item itemvalue="JUnit.MatrixTest.matrixCreate" />
-        <item itemvalue="JUnit.MatrixTest.test" />
-        <item itemvalue="Application.App" />
       </list>
     </recent_temporary>
   </component>
@@ -166,6 +169,10 @@
       <workItem from="1721777285655" duration="3828000" />
       <workItem from="1721820412429" duration="1440000" />
       <workItem from="1721872633785" duration="4065000" />
+      <workItem from="1721953272391" duration="10250000" />
+      <workItem from="1721994855381" duration="1039000" />
+      <workItem from="1722211861342" duration="636000" />
+      <workItem from="1722220654613" duration="3190000" />
     </task>
     <task id="LOCAL-00001" summary="first push to nowhere">
       <option name="closed" value="true" />
@@ -215,7 +222,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721875128454</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="8 - testEquals">
+      <option name="closed" value="true" />
+      <created>1721953481333</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1721953481333</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -245,7 +260,8 @@
     <MESSAGE value="5-5  - OR, XOR, NOR, NAND, XNOR" />
     <MESSAGE value="6 - Matrix class, test, toString test" />
     <MESSAGE value="7 - modifying matrices, apply()" />
-    <option name="LAST_COMMIT_MESSAGE" value="7 - modifying matrices, apply()" />
+    <MESSAGE value="8 - testEquals" />
+    <option name="LAST_COMMIT_MESSAGE" value="8 - testEquals" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

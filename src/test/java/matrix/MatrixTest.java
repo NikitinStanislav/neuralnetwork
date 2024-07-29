@@ -2,10 +2,51 @@ package matrix;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.*;
 
 public class MatrixTest {
+
+    @Test
+    public void testFormMatrix(){
+        Matrix m1 = new Matrix(3,4, i -> i+1);
+        Matrix m2 = new Matrix(4,5, i -> i*2);
+
+        System.out.println(m1);
+        System.out.println(m2);
+
+
+        double[][] matrix = Matrix.multiply(m1, m2) ;
+
+        for (int i = 0; i < matrix.length; i++){     //print result
+            for (int j = 0; j <matrix[0].length; j++){
+                System.out.print(matrix[i][j] + "  ");
+
+                if ((j + 1) % matrix[0].length == 0) {
+                    System.out.println("\n");
+                }
+            }
+        }
+
+        Matrix result = Matrix.formMatrixFromArray(matrix);
+        System.out.println(result);
+    }
+
+    @Test
+    public void testAddMatrices(){
+        Matrix m1 = new Matrix(2,2, i ->  i);
+        Matrix m2 = new Matrix(2,2, i ->  i * (-1.5));
+
+        Matrix expected = new Matrix(2, 2, i -> i * (-0.5));
+
+        Matrix result = m1.apply((index, value) -> value + m2.getValue(index));
+
+        System.out.println(m1);
+        System.out.println(m2);
+        System.out.println(expected);
+        System.out.println(result);
+
+        assertEquals(result, expected);
+    }
 
     @Test
     public void testEquals(){
