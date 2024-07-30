@@ -8,31 +8,32 @@ public class MatrixTest {
 
     @Test
     public void testFormMatrix(){
-        Matrix m1 = new Matrix(3,4, i -> i+1);
-        Matrix m2 = new Matrix(4,5, i -> i*2);
+        Matrix m1 = new Matrix(200,3000, i -> i+1);
+        Matrix m2 = new Matrix(3000,400, i -> i*2);
 
-        System.out.println(m1);
-        System.out.println(m2);
+        //System.out.println(m1);
+        //System.out.println(m2);
 
+        //double[] expectedValues = {64, 76, 88, 100, 136, 166, 196, 226};
+        //Matrix expectedResult = new Matrix(2, 4 , i -> expectedValues[i]);
 
-        double[][] matrix = Matrix.multiply(m1, m2) ;
+//        for (int i = 0; i < matrix.length; i++){     //print result
+//            for (int j = 0; j <matrix[0].length; j++){
+//                System.out.print(matrix[i][j] + "  ");
+//
+//                if ((j + 1) % matrix[0].length == 0) {
+//                    System.out.println("\n");
+//                }
+//            }
+//        }
 
-        for (int i = 0; i < matrix.length; i++){     //print result
-            for (int j = 0; j <matrix[0].length; j++){
-                System.out.print(matrix[i][j] + "  ");
+        long start = System.currentTimeMillis();
+        Matrix result = m1.multiply(m2);
+        long end = System.currentTimeMillis();
 
-                if ((j + 1) % matrix[0].length == 0) {
-                    System.out.println("\n");
-                }
-            }
-        }
+        System.out.printf("Matrix multiplication time is %dms", end - start);
 
-        Matrix result = Matrix.formMatrixFromArray(matrix);
-        System.out.println(result);
-
-
-        result = m1.multiply(m2);
-        System.out.println(result);
+        //assertEquals(result, expectedResult);
     }
 
     @Test

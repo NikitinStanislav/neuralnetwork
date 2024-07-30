@@ -22,7 +22,7 @@ public class Matrix {
     private int rows;
     private int columns;
 
-    public Matrix(int rows, int columns){
+    public Matrix(int rows, int columns) {
 
         this.rows = rows;
         this.columns = columns;
@@ -30,10 +30,10 @@ public class Matrix {
         a = new double[rows * columns];
     }
 
-    public Matrix(int rows, int columns, Producer producer){
-        this (rows, columns);
+    public Matrix(int rows, int columns, Producer producer) {
+        this(rows, columns);
 
-        for (int i = 0; i<a.length; i++){
+        for (int i = 0; i < a.length; i++) {
             a[i] = producer.produce(i);
         }
     }
@@ -44,8 +44,8 @@ public class Matrix {
 
         int index = 0;
 
-        for (int row = 0; row<rows; row++){
-            for (int column = 0; column<columns; column++){
+        for (int row = 0; row < rows; row++) {
+            for (int column = 0; column < columns; column++) {
                 sb.append(String.format(NUMBER_FORMAT, a[index]));
                 index++;
             }
@@ -60,8 +60,8 @@ public class Matrix {
         if (o == null || getClass() != o.getClass()) return false;
         Matrix matrix = (Matrix) o;
 
-        for (int i = 0; i<a.length; i++){
-            if (Math.abs(a[i] - matrix.a[i]) > TOLERANCE){
+        for (int i = 0; i < a.length; i++) {
+            if (Math.abs(a[i] - matrix.a[i]) > TOLERANCE) {
                 return false;
             }
         }
@@ -92,136 +92,34 @@ public class Matrix {
         return columns;
     }
 
-    public Matrix apply(ValueProducer producer){
+    public Matrix apply(ValueProducer producer) {
         Matrix result = new Matrix(rows, columns);
 
-        for (int i = 0; i<a.length; i++){
+        for (int i = 0; i < a.length; i++) {
             result.a[i] = producer.produce(i, a[i]);
         }
 
         return result;
     }
 
-    public static double[][] multiply(Matrix m1, Matrix m2){
 
-        assert m1.columns == m2.rows : "First matrix's length isn't equal to second matrix's width";
-
-        //Matrix result = new Matrix(m1.getRows(), m2.getColumns());
-
-        // выделить строки первой и колонки второй матрицы, использовать аплай для
-        // поиска каждого значения и результаты добавлять в новую матрцу(там будет цикл)
-
-        double[][] matrix1 = m1.formArrayMatrix();
-        double[][] matrix2 = m2.formArrayMatrix();
-
-        double[][] result = new double[m1.rows][m2.columns];
-
-        for (int i = 0; i < matrix1.length; i++) {
-            for (int j = 0; j < matrix2[0].length; j++) {
-
-
-                    for (int counter= 0; counter<matrix2.length; counter++){
-                        result[i][j] += matrix1[i][counter] * matrix2[counter][j];
-                    }
-
-            }
-        }
-
-        return result;
-    }
-
-    /*public Matrix multiply(Matrix matrix){
+    public Matrix multiply(Matrix matrix) {
 
         assert columns == matrix.rows : "First matrix's length isn't equal to second matrix's width";
 
         Matrix result = new Matrix(rows, matrix.columns);
-
-        double[][] matrix1 = formArrayMatrix();
-        double[][] matrix2 = matrix.formArrayMatrix();
-
-        int index = 0;
-
-        for (int i = 0; i < matrix1.length; i++) {
-            for (int j = 0; j < matrix2[0].length; j++) {
-
-                for (int counter= 0; counter<matrix2.length; counter++){
-                    result.a[index] += matrix1[i][counter] * matrix2[counter][j];
-                }
-                index++;
-            }
-        }
-
-        return result;
-    }*/
-
-    /*
-    0 1 2
-    3 4 5
-    6 7 8
-
-    searching for index of 7 in Matrix.a = [0, 1, 2, 3, 4, 5, 6, 7, 8]:
-
-    row = 2
-    col = 1
-    totalColumns = 3
-
-    index = row * totalColumns + col = 2 * 3 + 1 = 7;
-     */
-
-    public Matrix multiply(Matrix matrix){
-
-        assert columns == matrix.rows : "First matrix's length isn't equal to second matrix's width";
-
-        Matrix result = new Matrix(rows, matrix.columns);
-
-        //double[][] matrix1 = formArrayMatrix();
-        //double[][] matrix2 = matrix.formArrayMatrix();
-
-        //int index = 0;
 
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < matrix.columns; j++) {
 
-                for (int counter= 0; counter<columns; counter++){
-                    //result.a[index] += matrix1[i][counter] * matrix2[counter][j];
+                for (int counter = 0; counter < columns; counter++) {
                     result.a[i * result.columns + j] +=
                             a[i * columns + counter] * matrix.a[j + counter * matrix.columns];
-                    //эти две формулы дядька дал, ничего с ними не придумаешь
                 }
-                //index++;
             }
         }
 
         return result;
     }
 
-    double[][] formArrayMatrix(){
-
-        double[][] result = new double[this.rows][this.columns];
-        int aCounter = 0;
-        for (int i = 0; i < this.rows; i++){
-            for (int j = 0; j <this.columns; j++){
-                result [i][j] = this.a[aCounter];
-                aCounter++;
-            }
-        }
-        return result;
-    }
-
-    public static Matrix formMatrixFromArray(double[][] matrix) {
-        Matrix result = new Matrix(matrix.length, matrix[0].length);
-
-        int index = 0;
-
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[0].length; j++) {
-
-                result.a[index] = matrix[i][j];
-                index++;
-            }
-        }
-
-        return result;
-    }
 }
-
