@@ -109,10 +109,14 @@ public class Matrix {
 
         Matrix result = new Matrix(rows, matrix.columns);
 
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < matrix.columns; j++) {
 
-                for (int counter = 0; counter < columns; counter++) {
+        for (int i = 0; i < rows; i++) {
+
+            for (int counter = 0; counter < columns; counter++) {    //so apparently loops relocation improved the runtime 3 times faster
+
+                for (int j = 0; j < matrix.columns; j++) {
+
+
                     result.a[i * result.columns + j] +=
                             a[i * columns + counter] * matrix.a[j + counter * matrix.columns];
                 }
