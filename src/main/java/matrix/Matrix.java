@@ -103,6 +103,9 @@ public class Matrix {
     }
 
     public static double[][] multiply(Matrix m1, Matrix m2){
+
+        assert m1.columns == m2.rows : "First matrix's length isn't equal to second matrix's width";
+
         //Matrix result = new Matrix(m1.getRows(), m2.getColumns());
 
         // выделить строки первой и колонки второй матрицы, использовать аплай для
@@ -112,6 +115,7 @@ public class Matrix {
         double[][] matrix2 = m2.formArrayMatrix();
 
         double[][] result = new double[m1.rows][m2.columns];
+
         for (int i = 0; i < matrix1.length; i++) {
             for (int j = 0; j < matrix2[0].length; j++) {
 
@@ -123,6 +127,70 @@ public class Matrix {
             }
         }
 
+        return result;
+    }
+
+    /*public Matrix multiply(Matrix matrix){
+
+        assert columns == matrix.rows : "First matrix's length isn't equal to second matrix's width";
+
+        Matrix result = new Matrix(rows, matrix.columns);
+
+        double[][] matrix1 = formArrayMatrix();
+        double[][] matrix2 = matrix.formArrayMatrix();
+
+        int index = 0;
+
+        for (int i = 0; i < matrix1.length; i++) {
+            for (int j = 0; j < matrix2[0].length; j++) {
+
+                for (int counter= 0; counter<matrix2.length; counter++){
+                    result.a[index] += matrix1[i][counter] * matrix2[counter][j];
+                }
+                index++;
+            }
+        }
+
+        return result;
+    }*/
+
+    /*
+    0 1 2
+    3 4 5
+    6 7 8
+
+    searching for index of 7 in Matrix.a = [0, 1, 2, 3, 4, 5, 6, 7, 8]:
+
+    row = 2
+    col = 1
+    totalColumns = 3
+
+    index = row * totalColumns + col = 2 * 3 + 1 = 7;
+     */
+
+    public Matrix multiply(Matrix matrix){
+
+        assert columns == matrix.rows : "First matrix's length isn't equal to second matrix's width";
+
+        Matrix result = new Matrix(rows, matrix.columns);
+
+        //double[][] matrix1 = formArrayMatrix();
+        //double[][] matrix2 = matrix.formArrayMatrix();
+
+        //int index = 0;
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < matrix.columns; j++) {
+
+                for (int counter= 0; counter<columns; counter++){
+                    //result.a[index] += matrix1[i][counter] * matrix2[counter][j];
+                    result.a[i * result.columns + j] +=
+                            a[i * columns + counter] * matrix.a[j + counter * matrix.columns];
+                    //эти две формулы дядька дал, ничего с ними не придумаешь
+                }
+                //index++;
+            }
+        }
 
         return result;
     }

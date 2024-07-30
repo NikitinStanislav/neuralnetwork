@@ -29,6 +29,10 @@ public class MatrixTest {
 
         Matrix result = Matrix.formMatrixFromArray(matrix);
         System.out.println(result);
+
+
+        result = m1.multiply(m2);
+        System.out.println(result);
     }
 
     @Test

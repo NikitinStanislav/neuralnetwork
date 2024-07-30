@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6791507-684c-43af-96b3-32434b9a3984" name="Changes" comment="8 - testEquals">
+    <list default="true" id="f6791507-684c-43af-96b3-32434b9a3984" name="Changes" comment="9.1 - my multiply">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/matrix/Matrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/Matrix.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/matrix/MatrixTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/matrix/MatrixTest.java" afterDir="false" />
@@ -173,6 +173,8 @@
       <workItem from="1721994855381" duration="1039000" />
       <workItem from="1722211861342" duration="636000" />
       <workItem from="1722220654613" duration="3190000" />
+      <workItem from="1722223866391" duration="32000" />
+      <workItem from="1722298004185" duration="3889000" />
     </task>
     <task id="LOCAL-00001" summary="first push to nowhere">
       <option name="closed" value="true" />
@@ -230,7 +232,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721953481333</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="9.1 - my multiply">
+      <option name="closed" value="true" />
+      <created>1722223887688</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1722223887688</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -261,7 +271,8 @@
     <MESSAGE value="6 - Matrix class, test, toString test" />
     <MESSAGE value="7 - modifying matrices, apply()" />
     <MESSAGE value="8 - testEquals" />
-    <option name="LAST_COMMIT_MESSAGE" value="8 - testEquals" />
+    <MESSAGE value="9.1 - my multiply" />
+    <option name="LAST_COMMIT_MESSAGE" value="9.1 - my multiply" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
