@@ -1,7 +1,6 @@
 package matrix;
 
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.Objects;
 
 public class Matrix {
@@ -15,6 +14,10 @@ public class Matrix {
 
     public interface ValueProducer {
         double produce(int index, double value);
+    }
+
+    public interface RowColumnsProducer {
+        double produce(int rows, int columns, double value);
     }
 
     private double[] a;
@@ -76,6 +79,10 @@ public class Matrix {
         return result;
     }
 
+    public double get(int index) {
+        return a[index];
+    }
+
     public double[] getA() {
         return a;
     }
@@ -102,6 +109,22 @@ public class Matrix {
         return result;
     }
 
+    public Matrix modify (RowColumnsProducer producer){
+
+        int index = 0;
+
+        for (int row = 0; row < rows; row++){
+            for (int cols = 0; cols < columns; cols++){
+
+                a[index] = producer.produce(row, cols, a[index]);
+
+                index++;
+            }
+        }
+
+        return this;
+    }
+
 
     public Matrix multiply(Matrix matrix) {
 
@@ -125,5 +148,9 @@ public class Matrix {
 
         return result;
     }
+
+   /* public Matrix modify (Matrix bias){
+        return this.apply((index, value) -> value - bias.getValue(index));
+    }*/
 
 }
