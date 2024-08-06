@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6791507-684c-43af-96b3-32434b9a3984" name="Changes" comment="12 - Activation functions: test adding biases">
+    <list default="true" id="f6791507-684c-43af-96b3-32434b9a3984" name="Changes" comment="13 - Activation functions: ReLu implementation">
+      <change afterPath="$PROJECT_DIR$/src/main/java/july/Engine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/july/Transform.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/matrix/Matrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/Matrix.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/july/NeuralNetTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/july/NeuralNetTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/matrix/MatrixTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/matrix/MatrixTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +21,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JUnit4 Test Class" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -62,8 +66,8 @@
       <recent name="matrix" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.NeuralNetTest.testReLu">
-    <configuration name="MatrixTest.testAddMatrices" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.NeuralNetTest.testTemp">
+    <configuration name="MatrixTest.testSoftmax" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="neuralnetwork" />
       <extension name="coverage">
         <pattern>
@@ -73,13 +77,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="matrix" />
       <option name="MAIN_CLASS_NAME" value="matrix.MatrixTest" />
-      <option name="METHOD_NAME" value="testAddMatrices" />
+      <option name="METHOD_NAME" value="testSoftmax" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MatrixTest.testEquals" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MatrixTest.testSumColumns" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="neuralnetwork" />
       <extension name="coverage">
         <pattern>
@@ -89,23 +93,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="matrix" />
       <option name="MAIN_CLASS_NAME" value="matrix.MatrixTest" />
-      <option name="METHOD_NAME" value="testEquals" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MatrixTest.testFormMatrix" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="neuralnetwork" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="matrix.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="matrix" />
-      <option name="MAIN_CLASS_NAME" value="matrix.MatrixTest" />
-      <option name="METHOD_NAME" value="testFormMatrix" />
+      <option name="METHOD_NAME" value="testSumColumns" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -143,13 +131,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="NeuralNetTest.testTemp" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="neuralnetwork" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="july.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="july" />
+      <option name="MAIN_CLASS_NAME" value="july.NeuralNetTest" />
+      <option name="METHOD_NAME" value="testTemp" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.NeuralNetTest.testTemp" />
+        <item itemvalue="JUnit.MatrixTest.testSoftmax" />
+        <item itemvalue="JUnit.MatrixTest.testSumColumns" />
         <item itemvalue="JUnit.NeuralNetTest.testReLu" />
         <item itemvalue="JUnit.NeuralNetTest.test" />
-        <item itemvalue="JUnit.MatrixTest.testFormMatrix" />
-        <item itemvalue="JUnit.MatrixTest.testAddMatrices" />
-        <item itemvalue="JUnit.MatrixTest.testEquals" />
       </list>
     </recent_temporary>
   </component>
@@ -175,7 +179,8 @@
       <workItem from="1722220654613" duration="3190000" />
       <workItem from="1722223866391" duration="32000" />
       <workItem from="1722298004185" duration="5979000" />
-      <workItem from="1722467179275" duration="7257000" />
+      <workItem from="1722467179275" duration="8121000" />
+      <workItem from="1722897879944" duration="5468000" />
     </task>
     <task id="LOCAL-00001" summary="first push to nowhere">
       <option name="closed" value="true" />
@@ -273,7 +278,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722471080484</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="13 - Activation functions: ReLu implementation">
+      <option name="closed" value="true" />
+      <created>1722476172043</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1722476172043</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -309,7 +322,8 @@
     <MESSAGE value="10 - timing before optimization" />
     <MESSAGE value="11 - timing after optimization" />
     <MESSAGE value="12 - Activation functions: test adding biases" />
-    <option name="LAST_COMMIT_MESSAGE" value="12 - Activation functions: test adding biases" />
+    <MESSAGE value="13 - Activation functions: ReLu implementation" />
+    <option name="LAST_COMMIT_MESSAGE" value="13 - Activation functions: ReLu implementation" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

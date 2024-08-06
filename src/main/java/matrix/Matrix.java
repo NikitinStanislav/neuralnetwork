@@ -148,6 +148,40 @@ public class Matrix {
         }
     }
 
+    public Matrix sumColumns() {
+        Matrix result = new Matrix(1, columns);
+
+        //int index = 0;
+        for (int row = 0; row < rows; row++){
+            for (int cols = 0; cols < columns; cols++){
+                result.a[cols] += a[columns*row + cols];
+                //result.a[cols] += a[index++];
+            }
+        }
+
+        return result;
+    }
+
+    public Matrix softmax() {
+
+        Matrix result = new Matrix(rows, columns, i -> Math.exp(a[i]));
+
+        Matrix summed = result.sumColumns();
+
+        /*int index = 0;
+
+        for (int row = 0; row < rows; row++){
+            for (int cols = 0; cols < columns; cols++){
+                result.a[index] /= summed.a[cols];
+                index++;
+            }
+        }*/
+
+        result.modify((rows, columns, value) -> value/ summed.get(columns));
+
+        return result;
+    }
+
 
     public Matrix multiply(Matrix matrix) {
 

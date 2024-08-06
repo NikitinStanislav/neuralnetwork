@@ -2,9 +2,33 @@ package matrix;
 
 import org.junit.Test;
 
+import java.util.Random;
+
 import static org.junit.Assert.*;
 
 public class MatrixTest {
+
+    private Random random = new Random();
+
+    @Test
+    public void testSoftmax(){
+        Matrix output = new Matrix(3, 2, i -> random.nextDouble());
+
+        System.out.println(output);
+        Matrix result = output.softmax();
+
+        System.out.println(result);
+    }
+
+    @Test
+    public void testSumColumns(){
+        Matrix m = new Matrix(4, 5, i -> i);
+
+        Matrix result = m.sumColumns();
+
+        System.out.println(m);
+        System.out.println(result);
+    }
 
     @Test
     public void testFormMatrix(){
