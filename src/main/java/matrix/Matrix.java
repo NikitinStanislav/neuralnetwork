@@ -5,7 +5,7 @@ import java.util.Objects;
 
 public class Matrix {
 
-    private static final String NUMBER_FORMAT = "%+10.2f";
+    private static final String NUMBER_FORMAT = "%+10.3f";
     private static final Double TOLERANCE = 0.0001;
 
     public interface Producer {
