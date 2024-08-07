@@ -12,6 +12,24 @@ public class NeuralNetTest {
     private Random random = new Random();
 
     @Test
+    public void testEngine(){
+        Engine engine = new Engine();
+
+        engine.add(Transform.DENSE, 8, 5);
+        engine.add(Transform.RELU);
+        engine.add(Transform.DENSE, 6);
+        engine.add(Transform.RELU);
+        engine.add(Transform.DENSE, 4);
+        engine.add(Transform.SOFTMAX);
+
+        Matrix  input = new Matrix(5,2, i -> random.nextGaussian());
+        Matrix output = engine.runForwards(input);
+
+        System.out.println(engine);
+        System.out.println(output);
+    }
+
+    @Test
     public void testTemp(){
         int inputSize = 5; // amount of inputs: pixel, sound samples etc.
         int layer1Size = 6; //number of neuron in each layer

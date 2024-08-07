@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6791507-684c-43af-96b3-32434b9a3984" name="Changes" comment="14 - Softmax implemented, building engine">
+    <list default="true" id="f6791507-684c-43af-96b3-32434b9a3984" name="Changes" comment="15 - Mocked untrained network">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/july/Engine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/july/Engine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/matrix/Matrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/Matrix.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/july/NeuralNetTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/july/NeuralNetTest.java" afterDir="false" />
     </list>
@@ -26,6 +27,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$USER_HOME$/.jdks/corretto-20.0.2.1/lib/src.zip!/java.base/java/lang/AssertionError.java" root0="SKIP_INSPECTION" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -35,26 +39,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit4&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -63,7 +67,7 @@
       <recent name="matrix" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.NeuralNetTest.testTemp">
+  <component name="RunManager" selected="JUnit.NeuralNetTest.testEngine">
     <configuration name="MatrixTest.testSoftmax" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="neuralnetwork" />
       <extension name="coverage">
@@ -96,7 +100,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NeuralNetTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="NeuralNetTest.testEngine" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="neuralnetwork" />
       <extension name="coverage">
         <pattern>
@@ -106,7 +110,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="july" />
       <option name="MAIN_CLASS_NAME" value="july.NeuralNetTest" />
-      <option name="METHOD_NAME" value="test" />
+      <option name="METHOD_NAME" value="testEngine" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -146,11 +150,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.NeuralNetTest.testEngine" />
         <item itemvalue="JUnit.NeuralNetTest.testTemp" />
         <item itemvalue="JUnit.MatrixTest.testSoftmax" />
         <item itemvalue="JUnit.MatrixTest.testSumColumns" />
         <item itemvalue="JUnit.NeuralNetTest.testReLu" />
-        <item itemvalue="JUnit.NeuralNetTest.test" />
       </list>
     </recent_temporary>
   </component>
@@ -178,7 +182,7 @@
       <workItem from="1722298004185" duration="5979000" />
       <workItem from="1722467179275" duration="8121000" />
       <workItem from="1722897879944" duration="6213000" />
-      <workItem from="1722944490030" duration="4819000" />
+      <workItem from="1722944490030" duration="8641000" />
     </task>
     <task id="LOCAL-00001" summary="first push to nowhere">
       <option name="closed" value="true" />
@@ -292,7 +296,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722903394386</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="15 - Mocked untrained network">
+      <option name="closed" value="true" />
+      <created>1722986865345</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1722986865345</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -330,7 +342,8 @@
     <MESSAGE value="12 - Activation functions: test adding biases" />
     <MESSAGE value="13 - Activation functions: ReLu implementation" />
     <MESSAGE value="14 - Softmax implemented, building engine" />
-    <option name="LAST_COMMIT_MESSAGE" value="14 - Softmax implemented, building engine" />
+    <MESSAGE value="15 - Mocked untrained network" />
+    <option name="LAST_COMMIT_MESSAGE" value="15 - Mocked untrained network" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

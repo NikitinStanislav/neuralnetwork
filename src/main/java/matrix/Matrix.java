@@ -49,6 +49,14 @@ public class Matrix {
         }
     }
 
+    public String toString(boolean showValues){
+        if (showValues) {
+            return toString();
+        } else {
+            return rows + "x" + columns;
+        }
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
