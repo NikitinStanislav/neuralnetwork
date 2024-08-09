@@ -12,6 +12,32 @@ public class NeuralNetTest {
     private Random random = new Random();
 
     @Test
+    public void crossEntropy(){
+        double [] expectedValues = {1, 0, 0, 0, 0, 1, 0, 1, 0};
+        Matrix expected = new Matrix(3, 3, i -> expectedValues[i]);
+
+        System.out.println(expected);
+
+        Matrix actual = new Matrix(3, 3, i -> 0.05*i*i).softmax();
+
+        System.out.println(actual);
+
+        Matrix result = LossFunction.crossEntropy(expected, actual);
+        System.out.println(result);
+
+
+        actual.forEach((row, column, index, value) -> {
+            double expectedValue = expected.get(index);
+
+            double loss = result.get(column);
+
+            if (expectedValue == 1){
+                assertTrue(Math.abs(-Math.log(value)) - loss < 0.001);
+            }
+        });
+    }
+
+    @Test
     public void testEngine(){
         Engine engine = new Engine();
 
@@ -35,7 +61,7 @@ public class NeuralNetTest {
         int layer1Size = 6; //number of neuron in each layer
         int layer2Size = 4;
 
-        Matrix input = new Matrix(inputSize, 1, i -> random.nextGaussian());
+        Matrix input = new Matrix(inputSize, 4, i -> random.nextGaussian());
 
         Matrix layer1Weights = new Matrix(layer1Size, input.getRows(), i -> random.nextGaussian());
         Matrix layer1Biases = new Matrix(layer1Size, 1, i -> random.nextGaussian());
@@ -64,7 +90,7 @@ public class NeuralNetTest {
         System.out.println(output);
 
         output = output.softmax();   // modified by Softmax as activation of final layer
-        System.out.println(output);
+        System.out.println("softmax\n"+output);
     }
 
     @Test
