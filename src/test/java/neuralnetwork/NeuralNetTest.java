@@ -12,6 +12,27 @@ public class NeuralNetTest {
     private Random random = new Random();
 
     @Test
+    public void testAproximator(){
+
+        final int ROW = 4;
+        final int COL = 5;
+        Matrix input = new Matrix(ROW, COL, i -> random.nextGaussian());
+
+        Matrix expected = new Matrix(ROW, COL, i -> 0);
+
+        for (int i = 0; i < COL; i++){
+            expected.setExpected(random.nextInt(ROW), i, 1);
+        }
+
+        Approximator.gradient(input, null);
+
+        System.out.println();
+        System.out.println(input);
+
+        System.out.println(expected);
+    }
+
+    @Test
     public void crossEntropy(){
         double [] expectedValues = {1, 0, 0, 0, 0, 1, 0, 1, 0};
         Matrix expected = new Matrix(3, 3, i -> expectedValues[i]);

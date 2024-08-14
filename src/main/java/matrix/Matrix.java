@@ -103,6 +103,10 @@ public class Matrix {
         return result;
     }
 
+    public void setExpected(int row, int col, double value){
+        a[row*columns + col] = value;
+    }
+
     public double get(int index) {
         return a[index];
     }

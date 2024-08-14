@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6791507-684c-43af-96b3-32434b9a3984" name="Changes" comment="17 - Cross entropy">
-      <change afterPath="$PROJECT_DIR$/src/main/java/calculus/Calculus.java" afterDir="false" />
+    <list default="true" id="f6791507-684c-43af-96b3-32434b9a3984" name="Changes" comment="18 - Calculus">
+      <change afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/Approximator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/july/NeuralNetTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/july/NeuralNetTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/matrix/Matrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/Matrix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/neuralnetwork/NeuralNetTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/neuralnetwork/NeuralNetTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +25,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="0b6c458ca65fb6edab71705c43065b657b4f1d1b" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="SOFT" />
   </component>
@@ -67,20 +73,7 @@
       <recent name="matrix" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.NeuralNetTest.testEngine">
-    <configuration name="Calculus" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="calculus.Calculus" />
-      <module name="neuralnetwork" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="calculus.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.NeuralNetTest.testAproximator">
     <configuration name="MatrixTest.testSoftmax" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="neuralnetwork" />
       <extension name="coverage">
@@ -101,13 +94,29 @@
       <module name="neuralnetwork" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="july.*" />
+          <option name="PATTERN" value="neuralnetwork.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="july" />
-      <option name="MAIN_CLASS_NAME" value="july.NeuralNetTest" />
+      <option name="MAIN_CLASS_NAME" value="neuralnetwork.NeuralNetTest" />
       <option name="METHOD_NAME" value="crossEntropy" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NeuralNetTest.testAproximator" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="neuralnetwork" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="neuralnetwork.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="neuralnetwork" />
+      <option name="MAIN_CLASS_NAME" value="neuralnetwork.NeuralNetTest" />
+      <option name="METHOD_NAME" value="testAproximator" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -117,12 +126,12 @@
       <module name="neuralnetwork" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="july.*" />
+          <option name="PATTERN" value="neuralnetwork.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="july" />
-      <option name="MAIN_CLASS_NAME" value="july.NeuralNetTest" />
+      <option name="MAIN_CLASS_NAME" value="neuralnetwork.NeuralNetTest" />
       <option name="METHOD_NAME" value="testEngine" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -133,12 +142,12 @@
       <module name="neuralnetwork" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="july.*" />
+          <option name="PATTERN" value="neuralnetwork.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="july" />
-      <option name="MAIN_CLASS_NAME" value="july.NeuralNetTest" />
+      <option name="MAIN_CLASS_NAME" value="neuralnetwork.NeuralNetTest" />
       <option name="METHOD_NAME" value="testTemp" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -147,10 +156,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.NeuralNetTest.testEngine" />
-        <item itemvalue="Application.Calculus" />
-        <item itemvalue="JUnit.NeuralNetTest.crossEntropy" />
+        <item itemvalue="JUnit.NeuralNetTest.testAproximator" />
         <item itemvalue="JUnit.NeuralNetTest.testTemp" />
+        <item itemvalue="JUnit.NeuralNetTest.testEngine" />
+        <item itemvalue="JUnit.NeuralNetTest.crossEntropy" />
         <item itemvalue="JUnit.MatrixTest.testSoftmax" />
       </list>
     </recent_temporary>
@@ -180,7 +189,7 @@
       <workItem from="1722467179275" duration="8121000" />
       <workItem from="1722897879944" duration="6213000" />
       <workItem from="1722944490030" duration="8641000" />
-      <workItem from="1723586155152" duration="4576000" />
+      <workItem from="1723586155152" duration="7420000" />
     </task>
     <task id="LOCAL-00001" summary="first push to nowhere">
       <option name="closed" value="true" />
@@ -310,7 +319,23 @@
       <option name="project" value="LOCAL" />
       <updated>1723505687959</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="18 - Calculus">
+      <option name="closed" value="true" />
+      <created>1723596514599</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1723596514599</updated>
+    </task>
+    <task id="LOCAL-00018" summary="18 - Calculus">
+      <option name="closed" value="true" />
+      <created>1723596605805</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1723596605805</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -367,7 +392,8 @@
     <MESSAGE value="17 - Cross entropy&#10;&#10;(cherry picked from commit 0e8eca7c682949c7b83a9865d8868266bb59267d)" />
     <MESSAGE value="16 - Engine with Mocked untrained network" />
     <MESSAGE value="17 - Cross entropy" />
-    <option name="LAST_COMMIT_MESSAGE" value="17 - Cross entropy" />
+    <MESSAGE value="18 - Calculus" />
+    <option name="LAST_COMMIT_MESSAGE" value="18 - Calculus" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
