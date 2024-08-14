@@ -1,4 +1,4 @@
-package july;
+package neuralnetwork;
 
 import matrix.Matrix;
 

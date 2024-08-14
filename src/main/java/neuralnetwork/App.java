@@ -1,4 +1,4 @@
-package july;
+package neuralnetwork;
 
 /**
  * Input    AND     OR      XOR     NOR     NAND    XNOR    X-exclusive, if both -> 0  .

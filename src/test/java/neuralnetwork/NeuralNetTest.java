@@ -1,4 +1,4 @@
-package july;
+package neuralnetwork;
 
 import matrix.Matrix;
 import org.junit.Test;
@@ -45,10 +45,10 @@ public class NeuralNetTest {
         engine.add(Transform.RELU);
         engine.add(Transform.DENSE, 6);
         engine.add(Transform.RELU);
-        engine.add(Transform.DENSE, 4);
+        engine.add(Transform.DENSE, 3);
         engine.add(Transform.SOFTMAX);
 
-        Matrix  input = new Matrix(5,2, i -> random.nextGaussian());
+        Matrix  input = new Matrix(5,13, i -> random.nextGaussian());
         Matrix output = engine.runForwards(input);
 
         System.out.println(engine);
