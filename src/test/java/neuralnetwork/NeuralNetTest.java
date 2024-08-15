@@ -16,20 +16,37 @@ public class NeuralNetTest {
 
         final int ROW = 4;
         final int COL = 5;
-        Matrix input = new Matrix(ROW, COL, i -> random.nextGaussian());
+        Matrix input = new Matrix(ROW, COL, i -> random.nextGaussian()).softmax();
 
         Matrix expected = new Matrix(ROW, COL, i -> 0);
 
-        for (int i = 0; i < COL; i++){
-            expected.setExpected(random.nextInt(ROW), i, 1);
+        for (int i = 0; i < COL; i++){                      //generating random expected
+            expected.set(random.nextInt(ROW), i, 1);
         }
 
-        Approximator.gradient(input, null);
+        System.out.println("input\n\n"+input);
 
-        System.out.println();
-        System.out.println(input);
+        System.out.println("expected\n\n"+expected);
 
-        System.out.println(expected);
+
+        Matrix result = Approximator.gradient(input, in -> {
+            return LossFunction.crossEntropy(expected, in);
+        });
+
+        input.forEach((index, value) -> {
+            double resultValue = result.get(index);
+            double expectedValue = expected.get(index);
+
+            if (expectedValue < 0.001){
+                assertTrue(Math.abs(resultValue)<0.001);
+            }
+            else {
+                assertTrue(Math.abs(resultValue + 1.0/value) < 0.01); //shouldn't put too much zeros, i didn't get why
+            }
+
+        });
+
+        System.out.println("result\n\n"+result);
     }
 
     @Test
@@ -44,7 +61,7 @@ public class NeuralNetTest {
         System.out.println(actual);
 
         Matrix result = LossFunction.crossEntropy(expected, actual);
-        System.out.println(result);
+        System.out.println("cross entropy\n"+result);
 
 
         actual.forEach((row, column, index, value) -> {

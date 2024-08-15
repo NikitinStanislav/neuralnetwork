@@ -103,8 +103,16 @@ public class Matrix {
         return result;
     }
 
-    public void setExpected(int row, int col, double value){
+    public void set(int row, int col, double value){
         a[row*columns + col] = value;
+    }
+
+    public Matrix addIncrement(int row, int col, double increment){
+        Matrix result = apply((index, value) -> a[index]);
+
+        result.set(row, col, get(row, col)+increment);
+
+        return result;
     }
 
     public double get(int index) {
@@ -113,6 +121,10 @@ public class Matrix {
 
     public double[] getA() {
         return a;
+    }
+
+    public double get(int row, int col) {
+        return a[row * columns + col];
     }
 
     public double getValue(int index) {

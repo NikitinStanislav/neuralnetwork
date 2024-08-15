@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6791507-684c-43af-96b3-32434b9a3984" name="Changes" comment="18 - Calculus">
-      <change afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/Approximator.java" afterDir="false" />
+    <list default="true" id="f6791507-684c-43af-96b3-32434b9a3984" name="Changes" comment="19 - Approximator, mocking expected data">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/matrix/Matrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/Matrix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neuralnetwork/Approximator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/Approximator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/matrix/MatrixTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/matrix/MatrixTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/neuralnetwork/NeuralNetTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/neuralnetwork/NeuralNetTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -74,7 +75,7 @@
     </key>
   </component>
   <component name="RunManager" selected="JUnit.NeuralNetTest.testAproximator">
-    <configuration name="MatrixTest.testSoftmax" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MatrixTest.testAddIncrement" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="neuralnetwork" />
       <extension name="coverage">
         <pattern>
@@ -84,7 +85,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="matrix" />
       <option name="MAIN_CLASS_NAME" value="matrix.MatrixTest" />
-      <option name="METHOD_NAME" value="testSoftmax" />
+      <option name="METHOD_NAME" value="testAddIncrement" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -157,10 +158,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.NeuralNetTest.testAproximator" />
+        <item itemvalue="JUnit.NeuralNetTest.crossEntropy" />
+        <item itemvalue="JUnit.MatrixTest.testAddIncrement" />
         <item itemvalue="JUnit.NeuralNetTest.testTemp" />
         <item itemvalue="JUnit.NeuralNetTest.testEngine" />
-        <item itemvalue="JUnit.NeuralNetTest.crossEntropy" />
-        <item itemvalue="JUnit.MatrixTest.testSoftmax" />
       </list>
     </recent_temporary>
   </component>
@@ -189,7 +190,9 @@
       <workItem from="1722467179275" duration="8121000" />
       <workItem from="1722897879944" duration="6213000" />
       <workItem from="1722944490030" duration="8641000" />
-      <workItem from="1723586155152" duration="7420000" />
+      <workItem from="1723586155152" duration="12656000" />
+      <workItem from="1723636257247" duration="685000" />
+      <workItem from="1723676695051" duration="6312000" />
     </task>
     <task id="LOCAL-00001" summary="first push to nowhere">
       <option name="closed" value="true" />
@@ -335,7 +338,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723596605805</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="19 - Approximator, mocking expected data">
+      <option name="closed" value="true" />
+      <created>1723599507184</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1723599507184</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -393,7 +404,8 @@
     <MESSAGE value="16 - Engine with Mocked untrained network" />
     <MESSAGE value="17 - Cross entropy" />
     <MESSAGE value="18 - Calculus" />
-    <option name="LAST_COMMIT_MESSAGE" value="18 - Calculus" />
+    <MESSAGE value="19 - Approximator, mocking expected data" />
+    <option name="LAST_COMMIT_MESSAGE" value="19 - Approximator, mocking expected data" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

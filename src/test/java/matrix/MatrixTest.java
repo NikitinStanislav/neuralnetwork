@@ -11,6 +11,20 @@ public class MatrixTest {
     private Random random = new Random();
 
     @Test
+    public void testAddIncrement(){
+        Matrix output = new Matrix(5, 6, i -> random.nextDouble());
+
+        int row = 3;
+        int col = 2;
+        final double increment = 10;
+
+        Matrix result = output.addIncrement(row, col, increment);
+
+        System.out.println(output);
+        System.out.println(result);
+    }
+
+    @Test
     public void testSoftmax(){
         Matrix output = new Matrix(3, 2, i -> random.nextDouble());
 
