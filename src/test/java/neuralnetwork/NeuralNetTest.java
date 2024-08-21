@@ -12,6 +12,41 @@ public class NeuralNetTest {
     private Random random = new Random();
 
     @Test
+    public void testSoftmaxCrossEntropyGradient(){
+
+        final int ROW = 4;
+        final int COL = 5;
+        Matrix input = new Matrix(ROW, COL, i -> random.nextGaussian());
+
+        Matrix expected = new Matrix(ROW, COL, i -> 0);
+
+        for (int i = 0; i < COL; i++){                      //generating random expected
+            expected.set(random.nextInt(ROW), i, 1);
+        }
+
+        System.out.println("input\n\n"+input);
+
+        System.out.println("expected\n\n"+expected);
+
+        Matrix softmaxOutput = input.softmax();
+
+        Matrix result = Approximator.gradient(input, in -> {
+            return LossFunction.crossEntropy(expected, in.softmax());
+        });
+
+        result.forEach((index, value) -> {
+
+            double expectedValue = expected.get(index);
+            double softmaxValue = softmaxOutput.getValue(index);
+
+            System.out.println(value+" value, "+softmaxValue+" softmax value, "+expectedValue+" expected value");
+            assertTrue(Math.abs(value - (softmaxValue - expectedValue)) < 0.001);
+        });
+
+        System.out.println("result\n\n"+result);
+    }
+
+    @Test
     public void testAproximator(){
 
         final int ROW = 4;
