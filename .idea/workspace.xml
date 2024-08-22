@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6791507-684c-43af-96b3-32434b9a3984" name="Changes" comment="20 - Approximator finished and tested">
+    <list default="true" id="f6791507-684c-43af-96b3-32434b9a3984" name="Changes" comment="21 -Backpropagation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/neuralnetwork/NeuralNetTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/neuralnetwork/NeuralNetTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/calculus/Calculus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/calculus/Calculus.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +71,20 @@
       <recent name="matrix" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.NeuralNetTest.testSoftmaxCrossEntropyGradient">
+  <component name="RunManager" selected="Application.Calculus">
+    <configuration name="Calculus" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="calculus.Calculus" />
+      <module name="neuralnetwork" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="calculus.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MatrixTest.testAddIncrement" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="neuralnetwork" />
       <extension name="coverage">
@@ -136,29 +149,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NeuralNetTest.testTemp" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="neuralnetwork" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="neuralnetwork.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="july" />
-      <option name="MAIN_CLASS_NAME" value="neuralnetwork.NeuralNetTest" />
-      <option name="METHOD_NAME" value="testTemp" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Calculus" />
         <item itemvalue="JUnit.NeuralNetTest.testSoftmaxCrossEntropyGradient" />
         <item itemvalue="JUnit.NeuralNetTest.testAproximator" />
         <item itemvalue="JUnit.NeuralNetTest.crossEntropy" />
         <item itemvalue="JUnit.MatrixTest.testAddIncrement" />
-        <item itemvalue="JUnit.NeuralNetTest.testTemp" />
       </list>
     </recent_temporary>
   </component>
@@ -192,7 +189,8 @@
       <workItem from="1723676695051" duration="9103000" />
       <workItem from="1723849679186" duration="35000" />
       <workItem from="1724199059296" duration="596000" />
-      <workItem from="1724280652108" duration="1377000" />
+      <workItem from="1724280652108" duration="3187000" />
+      <workItem from="1724285259794" duration="1840000" />
     </task>
     <task id="LOCAL-00001" summary="first push to nowhere">
       <option name="closed" value="true" />
@@ -362,7 +360,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723683903036</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="21 -Backpropagation">
+      <option name="closed" value="true" />
+      <created>1724284159297</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1724284159297</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -422,7 +428,8 @@
     <MESSAGE value="18 - Calculus" />
     <MESSAGE value="19 - Approximator, mocking expected data" />
     <MESSAGE value="20 - Approximator finished and tested" />
-    <option name="LAST_COMMIT_MESSAGE" value="20 - Approximator finished and tested" />
+    <MESSAGE value="21 -Backpropagation" />
+    <option name="LAST_COMMIT_MESSAGE" value="21 -Backpropagation" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
