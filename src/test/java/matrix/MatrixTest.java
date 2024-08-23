@@ -11,6 +11,18 @@ public class MatrixTest {
     private Random random = new Random();
 
     @Test
+    public void testTranspose(){
+        Matrix m = new Matrix(2, 3, i -> i);
+        System.out.println(m);
+        Matrix result = m.transpose();
+        System.out.println(result);
+
+        double [] expectedValues = {0,3,1,4,2,5};
+        Matrix expected = new Matrix(3, 2, i -> expectedValues[i]);
+        assertEquals(result, expected);
+    }
+
+    @Test
     public void testAddIncrement(){
         Matrix output = new Matrix(5, 6, i -> random.nextDouble());
 

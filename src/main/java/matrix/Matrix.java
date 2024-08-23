@@ -266,4 +266,15 @@ public class Matrix {
         return this.apply((index, value) -> value - bias.getValue(index));
     }*/
 
+    public Matrix transpose(){
+        Matrix result = new Matrix(columns, rows);
+        for (int i = 0; i < a.length; i++) {
+            int row = i/columns;
+            int col = i % columns;
+            result.a[col * rows + row] = a[i];
+        }
+        
+         return result;
+    }
+
 }

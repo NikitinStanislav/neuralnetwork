@@ -5,11 +5,55 @@ import org.junit.Test;
 
 import java.util.Random;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class NeuralNetTest {
 
     private Random random = new Random();
+
+    @Test
+    public void testBackPropWeights(){
+
+        final int INPUT_ROW = 4;
+        final int COL = 5;
+
+        final int OUTPUT_ROW = 4;
+
+
+        Matrix input = new Matrix(INPUT_ROW, COL, i -> random.nextGaussian());
+
+        Matrix expected = new Matrix(OUTPUT_ROW, COL, i -> 0);
+
+        Matrix weights = new Matrix(OUTPUT_ROW, INPUT_ROW, i -> random.nextGaussian());
+
+        Matrix biases = new Matrix(OUTPUT_ROW, 1, i -> random.nextGaussian());
+
+        for (int i = 0; i < COL; i++) {                      //generating random expected
+            expected.set(random.nextInt(OUTPUT_ROW), i, 1);
+        }
+
+        System.out.println("input\n\n" + input);
+        System.out.println("weights\n\n" + weights);
+        System.out.println("biases\n\n" + biases);
+
+        System.out.println("expected\n\n" + expected);
+
+        Matrix softmaxOutput = weights.multiply(input).modify((rows, columns, value) -> value + biases.get(rows)).softmax();
+
+        Matrix approximatedResult = Approximator.gradient(input, in -> { //input is used by gradient to create in
+            in = weights.multiply(in).modify((rows, columns, value) -> value + biases.get(rows));
+            return LossFunction.crossEntropy(expected, in.softmax());
+        });
+
+        Matrix calculatedResult = softmaxOutput.apply((index, value) -> value - expected.get(index));
+        calculatedResult = weights.transpose().multiply(calculatedResult);
+
+        System.out.println("calculatedResult\n"+calculatedResult);
+        System.out.println("approximatedResult\n"+approximatedResult);
+
+        assertEquals(calculatedResult, approximatedResult); //if not, add more zeros to approximator's INC
+    }
 
     @Test
     public void testSoftmaxCrossEntropyGradient(){
@@ -142,8 +186,8 @@ public class NeuralNetTest {
         Matrix layer2Weights = new Matrix(layer2Size, layer1Weights.getRows(), i -> random.nextGaussian());
         Matrix layer2Biases = new Matrix(layer2Size, 1, i -> random.nextGaussian());
 
+        System.out.println("\tInput\n"+input);
         var output = input;   //set up initial input
-        System.out.println(output);
 
         output = layer1Weights.multiply(input);   // weigths x inputs       почему не наоборот? бо тогда 1х6 а не 5х5, ширина первой х высоту второй
         System.out.println(output);
