@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6791507-684c-43af-96b3-32434b9a3984" name="Changes" comment="22 -Chain Rule, single and multiple values">
+    <list default="true" id="f6791507-684c-43af-96b3-32434b9a3984" name="Changes" comment="23 -matrix transpose, backpropagating weights">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/matrix/Matrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/Matrix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/matrix/MatrixTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/matrix/MatrixTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/neuralnetwork/NeuralNetTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/neuralnetwork/NeuralNetTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -73,23 +71,7 @@
       <recent name="matrix" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.NeuralNetTest.testBackPropWeights">
-    <configuration name="MatrixTest.testTranspose" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="neuralnetwork" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="matrix.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="matrix" />
-      <option name="MAIN_CLASS_NAME" value="matrix.MatrixTest" />
-      <option name="METHOD_NAME" value="testTranspose" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.NeuralNetTest.testBackProp">
     <configuration name="NeuralNetTest.crossEntropy" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="neuralnetwork" />
       <extension name="coverage">
@@ -101,6 +83,22 @@
       <option name="PACKAGE_NAME" value="july" />
       <option name="MAIN_CLASS_NAME" value="neuralnetwork.NeuralNetTest" />
       <option name="METHOD_NAME" value="crossEntropy" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NeuralNetTest.testBackProp" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="neuralnetwork" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="neuralnetwork.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="neuralnetwork" />
+      <option name="MAIN_CLASS_NAME" value="neuralnetwork.NeuralNetTest" />
+      <option name="METHOD_NAME" value="testBackProp" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -156,11 +154,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.NeuralNetTest.testBackProp" />
         <item itemvalue="JUnit.NeuralNetTest.testBackPropWeights" />
         <item itemvalue="JUnit.NeuralNetTest.testSoftmaxCrossEntropyGradient" />
         <item itemvalue="JUnit.NeuralNetTest.testTemp" />
         <item itemvalue="JUnit.NeuralNetTest.crossEntropy" />
-        <item itemvalue="JUnit.MatrixTest.testTranspose" />
       </list>
     </recent_temporary>
   </component>
@@ -197,7 +195,7 @@
       <workItem from="1724280652108" duration="3187000" />
       <workItem from="1724285259794" duration="2799000" />
       <workItem from="1724368891790" duration="16000" />
-      <workItem from="1724369841152" duration="5140000" />
+      <workItem from="1724369841152" duration="7589000" />
     </task>
     <task id="LOCAL-00001" summary="first push to nowhere">
       <option name="closed" value="true" />
@@ -383,7 +381,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724289829724</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="23 -matrix transpose, backpropagating weights">
+      <option name="closed" value="true" />
+      <created>1724375755432</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1724375755432</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -445,7 +451,8 @@
     <MESSAGE value="20 - Approximator finished and tested" />
     <MESSAGE value="21 -Backpropagation" />
     <MESSAGE value="22 -Chain Rule, single and multiple values" />
-    <option name="LAST_COMMIT_MESSAGE" value="22 -Chain Rule, single and multiple values" />
+    <MESSAGE value="23 -matrix transpose, backpropagating weights" />
+    <option name="LAST_COMMIT_MESSAGE" value="23 -matrix transpose, backpropagating weights" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

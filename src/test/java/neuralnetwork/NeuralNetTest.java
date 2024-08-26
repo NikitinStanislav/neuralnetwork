@@ -12,14 +12,71 @@ public class NeuralNetTest {
 
     private Random random = new Random();
 
+
     @Test
-    public void testBackPropWeights(){
+    public void testBackProp(){
+
+        interface NeuralNet {
+            Matrix apply(Matrix m);
+        }
 
         final int INPUT_ROW = 4;
         final int COL = 5;
 
         final int OUTPUT_ROW = 4;
 
+        Matrix input = new Matrix(INPUT_ROW, COL, i -> random.nextGaussian());
+        Matrix expected = new Matrix(OUTPUT_ROW, COL, i -> 0);
+        Matrix weights = new Matrix(OUTPUT_ROW, INPUT_ROW, i -> random.nextGaussian());
+        Matrix biases = new Matrix(OUTPUT_ROW, 1, i -> random.nextGaussian());
+
+
+        System.out.println("input\n\n" + input);
+        System.out.println("weights\n\n" + weights);
+        System.out.println("biases\n\n" + biases);
+        System.out.println("expected\n\n" + expected);
+
+        for (int i = 0; i < COL; i++) {                      //generating random expected
+            expected.set(random.nextInt(OUTPUT_ROW), i, 1);
+        }
+
+        NeuralNet neuralNet = m -> {
+            Matrix out = m.apply((index, value) -> value > 0 ? value : 0);
+            out = weights.multiply(out); // weights
+            out.modify((rows, columns, value) -> value + biases.get(rows)); //biaces
+            out = out.softmax(); //softmax
+
+            return out;
+        };
+
+        Matrix softmaxOutput = neuralNet.apply(input);
+
+        Matrix approximatedResult = Approximator.gradient(input, in -> { //input is used by gradient to create in
+            Matrix out = neuralNet.apply(in);
+            return LossFunction.crossEntropy(expected, out);
+        });
+
+        Matrix calculatedResult = softmaxOutput.apply((index, value) -> value - expected.get(index));
+        calculatedResult = weights.transpose().multiply(calculatedResult);
+        calculatedResult = calculatedResult.apply(((index, value) -> input.get(index) > 0 ? value : 0));
+
+        System.out.println("calculatedResult\n"+calculatedResult);
+        System.out.println("approximatedResult\n"+approximatedResult);
+
+        assertEquals(calculatedResult, approximatedResult); //if not, add more zeros to approximator's INC
+    }
+
+    @Test
+    public void testBackPropWeights(){
+
+        interface NeuralNet {
+            Matrix apply(Matrix m);
+        }
+
+        final int INPUT_ROW = 4;
+        final int COL = 5;
+
+        final int OUTPUT_ROW = 4;
 
         Matrix input = new Matrix(INPUT_ROW, COL, i -> random.nextGaussian());
 
@@ -33,17 +90,13 @@ public class NeuralNetTest {
             expected.set(random.nextInt(OUTPUT_ROW), i, 1);
         }
 
-        System.out.println("input\n\n" + input);
-        System.out.println("weights\n\n" + weights);
-        System.out.println("biases\n\n" + biases);
+        NeuralNet neuralNet = m -> weights.multiply(m).modify((rows, columns, value) -> value + biases.get(rows)).softmax();
 
-        System.out.println("expected\n\n" + expected);
-
-        Matrix softmaxOutput = weights.multiply(input).modify((rows, columns, value) -> value + biases.get(rows)).softmax();
+        Matrix softmaxOutput = neuralNet.apply(input);
 
         Matrix approximatedResult = Approximator.gradient(input, in -> { //input is used by gradient to create in
-            in = weights.multiply(in).modify((rows, columns, value) -> value + biases.get(rows));
-            return LossFunction.crossEntropy(expected, in.softmax());
+            Matrix out = neuralNet.apply(in);
+            return LossFunction.crossEntropy(expected, out);
         });
 
         Matrix calculatedResult = softmaxOutput.apply((index, value) -> value - expected.get(index));
