@@ -10,12 +10,20 @@ public class Engine {
     private LinkedList<Matrix> weights = new LinkedList<>();
     private LinkedList<Matrix> biases = new LinkedList<>();
 
+    private LossFunction lossFunction = LossFunction.CROSS_ENTROPY;
+
+    private boolean storeInputError = false;
+
     private Random random = new Random();
 
-    public Matrix runForwards(Matrix input){
+    public BatchResult runForwards(Matrix input){
+
+        BatchResult batchResult = new BatchResult();
         Matrix output = input;
 
         int denseIndex = 0;
+
+        batchResult.addIo(output);
 
         for (var tr: transforms){
             if (tr == Transform.DENSE){
@@ -31,9 +39,42 @@ public class Engine {
             } else if (tr == Transform.SOFTMAX){
                 output = output.softmax();
             }
-        }
-        return output;
 
+            batchResult.addIo(output);
+        }
+        return batchResult;
+
+    }
+
+    public void runBackwards(BatchResult batchResult, Matrix expected){
+
+        var transformsIterator = transforms.descendingIterator();
+
+        if (lossFunction != LossFunction.CROSS_ENTROPY || transforms.getLast() != Transform.SOFTMAX) {
+            throw new UnsupportedOperationException("Last loss function must be a cross entropy, must transform must be a softmax");
+        }
+
+        var ioIterator = batchResult.getIo().descendingIterator();
+        Matrix softmaxOutput = ioIterator.next();
+        Matrix error = softmaxOutput.apply((index, value) -> value - expected.get(index));
+
+
+        while (transformsIterator.hasNext()){
+            Transform transform = transformsIterator.next();
+
+            switch (transform){
+                case DENSE : break;
+                case RELU : break;
+                case SOFTMAX : break;
+                default : throw new UnsupportedOperationException("Not implemented");
+            }
+
+            System.out.println(transform);
+        }
+
+        if (storeInputError){
+            batchResult.setInputError(error);
+        }
     }
 
     public void add(Transform transform, double...params){  // ... любое число аргументов
@@ -73,5 +114,10 @@ public class Engine {
         }
 
         return sb.toString();
+    }
+
+
+    public void setStoreInputError(boolean storeInputError) {
+        this.storeInputError = storeInputError;
     }
 }
