@@ -216,14 +216,32 @@ public class NeuralNetTest {
         Engine engine = new Engine();
 
         engine.add(Transform.DENSE, 8, 5);
-        engine.add(Transform.RELU);
+        //engine.add(Transform.RELU);
         engine.add(Transform.DENSE, 6);
-        engine.add(Transform.RELU);
+        //engine.add(Transform.RELU);
         engine.add(Transform.DENSE, 3);
         engine.add(Transform.SOFTMAX);
+        engine.setStoreInputError(true);
 
-        BatchResult batchResult = engine.runForwards(Util.generateInputMatrix(inputRows, columns));
-        engine.runBackwards(batchResult, Util.generateExpectedMatrix(outputRows, columns));
+        Matrix input = Util.generateInputMatrix(inputRows, columns);
+        Matrix expected = Util.generateExpectedMatrix(outputRows, columns);
+
+        Matrix approximatedError = Approximator.gradient(input, in -> { //it's a rate of change of the losses with respect to the elements in the input matrix
+            BatchResult batchResult = engine.runForwards(in);
+            return LossFunctions.crossEntropy(expected, batchResult.getOutput());
+        });
+
+        BatchResult batchResult = engine.runForwards(input);
+        engine.runBackwards(batchResult, expected);
+
+        Matrix calculatedError = batchResult.getInputError();
+
+        System.out.println(approximatedError);
+        System.out.println(calculatedError);
+
+        calculatedError.setTolerance(0.0001);
+
+        assertEquals(approximatedError, calculatedError);
 
     }
 

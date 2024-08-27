@@ -55,6 +55,8 @@ public class Engine {
         }
 
         var ioIterator = batchResult.getIo().descendingIterator();
+        var weightIterator = weights.descendingIterator();
+
         Matrix softmaxOutput = ioIterator.next();
         Matrix error = softmaxOutput.apply((index, value) -> value - expected.get(index));
 
@@ -63,7 +65,10 @@ public class Engine {
             Transform transform = transformsIterator.next();
 
             switch (transform){
-                case DENSE : break;
+                case DENSE :
+                    Matrix weight = weightIterator.next();
+                    error = weight.transpose().multiply(error);
+                    break;
                 case RELU : break;
                 case SOFTMAX : break;
                 default : throw new UnsupportedOperationException("Not implemented");

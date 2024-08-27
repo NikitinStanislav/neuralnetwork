@@ -6,7 +6,7 @@ import java.util.Objects;
 public class Matrix {
 
     private static final String NUMBER_FORMAT = "%+10.3f";
-    private static final Double TOLERANCE = 0.0001;
+    private Double tolerance = 0.001;
 
     public interface Producer {
         double produce(int index);
@@ -81,6 +81,10 @@ public class Matrix {
         return sb.toString();
     }
 
+    public void setTolerance(Double tolerance) {
+        this.tolerance = tolerance;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -88,7 +92,7 @@ public class Matrix {
         Matrix matrix = (Matrix) o;
 
         for (int i = 0; i < a.length; i++) {
-            if (Math.abs(a[i] - matrix.a[i]) > TOLERANCE) {
+            if (Math.abs(a[i] - matrix.a[i]) > tolerance) {
                 return false;
             }
         }

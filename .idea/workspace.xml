@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6791507-684c-43af-96b3-32434b9a3984" name="Changes" comment="24 -backpropagating ReLu">
-      <change afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/BatchResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/LossFunctions.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/Util.java" afterDir="false" />
+    <list default="true" id="f6791507-684c-43af-96b3-32434b9a3984" name="Changes" comment="25 - writing engine, runBackwards, BatchResult, Util,">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/matrix/Matrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/Matrix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neuralnetwork/BatchResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/BatchResult.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/neuralnetwork/Engine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/Engine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/neuralnetwork/LossFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/LossFunction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/neuralnetwork/NeuralNetTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/neuralnetwork/NeuralNetTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -201,7 +199,7 @@
       <workItem from="1724285259794" duration="2799000" />
       <workItem from="1724368891790" duration="16000" />
       <workItem from="1724369841152" duration="7589000" />
-      <workItem from="1724713882351" duration="4742000" />
+      <workItem from="1724713882351" duration="6992000" />
     </task>
     <task id="LOCAL-00001" summary="first push to nowhere">
       <option name="closed" value="true" />
@@ -403,7 +401,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724714055268</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="25 - writing engine, runBackwards, BatchResult, Util,">
+      <option name="closed" value="true" />
+      <created>1724719057542</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1724719057542</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -442,7 +448,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="first push to nowhere" />
     <MESSAGE value="third push" />
     <MESSAGE value="4 - Perceptron AND" />
     <MESSAGE value="5-5  - OR, XOR, NOR, NAND, XNOR" />
@@ -467,7 +472,8 @@
     <MESSAGE value="22 -Chain Rule, single and multiple values" />
     <MESSAGE value="23 -matrix transpose, backpropagating weights" />
     <MESSAGE value="24 -backpropagating ReLu" />
-    <option name="LAST_COMMIT_MESSAGE" value="24 -backpropagating ReLu" />
+    <MESSAGE value="25 - writing engine, runBackwards, BatchResult, Util," />
+    <option name="LAST_COMMIT_MESSAGE" value="25 - writing engine, runBackwards, BatchResult, Util," />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
