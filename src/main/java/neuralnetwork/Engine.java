@@ -64,12 +64,19 @@ public class Engine {
         while (transformsIterator.hasNext()){
             Transform transform = transformsIterator.next();
 
+            Matrix input = ioIterator.next();
+
             switch (transform){
                 case DENSE :
                     Matrix weight = weightIterator.next();
-                    error = weight.transpose().multiply(error);
+
+                    if (weightIterator.hasNext() || storeInputError) {
+                        error = weight.transpose().multiply(error);
+                    }
                     break;
-                case RELU : break;
+                case RELU :
+                    error = error.apply(((index, value) -> input.get(index) > 0 ? value : 0));
+                    break;
                 case SOFTMAX : break;
                 default : throw new UnsupportedOperationException("Not implemented");
             }

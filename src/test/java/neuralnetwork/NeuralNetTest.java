@@ -216,9 +216,9 @@ public class NeuralNetTest {
         Engine engine = new Engine();
 
         engine.add(Transform.DENSE, 8, 5);
-        //engine.add(Transform.RELU);
+        engine.add(Transform.RELU);
         engine.add(Transform.DENSE, 6);
-        //engine.add(Transform.RELU);
+        engine.add(Transform.RELU);
         engine.add(Transform.DENSE, 3);
         engine.add(Transform.SOFTMAX);
         engine.setStoreInputError(true);
