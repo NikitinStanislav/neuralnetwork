@@ -4,9 +4,9 @@ import matrix.Matrix;
 
 import java.util.LinkedList;
 
-public class BatchResult {
+public class BatchResult {  //class for storing inputs and outputs
 
-    private LinkedList<Matrix> io = new LinkedList<>();
+    private LinkedList<Matrix> io = new LinkedList<>(); //inputs gonna be an outputs eventually, except the first one
     private LinkedList<Matrix> weightErrors = new LinkedList<>();
     private Matrix inputError;
 

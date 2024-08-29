@@ -109,7 +109,7 @@ public class NeuralNetTest {
     }
 
     @Test
-    public void testSoftmaxCrossEntropyGradient(){
+    public void testSoftmaxCrossEntropyGradient(){ //то есть вот это все безобразие, это уже было backprop перед softmax?
 
         final int ROW = 4;
         final int COL = 5;
@@ -127,20 +127,49 @@ public class NeuralNetTest {
 
         Matrix softmaxOutput = input.softmax();
 
+        System.out.println("softmaxOutput\n"+softmaxOutput);
+
         Matrix result = Approximator.gradient(input, in -> {
             return LossFunctions.crossEntropy(expected, in.softmax());
-        });
+
+            /** softmax() перенесли из 116 строчки сюда
+            раньше result был кучей нулей и высокое отрицательное значение там где надо
+            сейчас result идентичен input.softmax(), но нужные значения == input.softmax()-1
+            ИЛИ же, сумма всех остальных значений в колонке * (-1)
+
+            softmaxOutput
+              +0.22026  +0.28813  +0.06658  +0.01550  +0.20845
+              +0.05136  +0.30480  +0.69911  +0.28812  +0.11858
+              +0.59924  +0.29922  +0.04646  +0.09695  +0.32916
+              +0.12914  +0.10785  +0.18784  +0.59943  +0.34381
+
+             old result
+
+             +0.00000  +0.00000 -15.01758  +0.00000  +0.00000
+             -19.46832  -3.28075  +0.00000  +0.00000  -8.43263
+             +0.00000  +0.00000  +0.00000  +0.00000  +0.00000
+             +0.00000  +0.00000  +0.00000  -1.66825  +0.00000
+
+             new result
+
+             +0.22026  +0.28813  -0.93342  +0.01550  +0.20845
+             -0.94864  -0.69520  +0.69911  +0.28812  -0.88142
+             +0.59924  +0.29922  +0.04646  +0.09695  +0.32916
+             +0.12914  +0.10785  +0.18784  -0.40057  +0.34381 */
+
+             });
+
+        System.out.println("result\n\n"+result);
 
         result.forEach((index, value) -> {
 
             double expectedValue = expected.get(index);
             double softmaxValue = softmaxOutput.getValue(index);
 
-            System.out.println(value+" value, "+softmaxValue+" softmax value, "+expectedValue+" expected value");
+            //System.out.println(value+" value, "+softmaxValue+" softmax value, "+expectedValue+" expected value");
             assertTrue(Math.abs(value - (softmaxValue - expectedValue)) < 0.001);
         });
 
-        System.out.println("result\n\n"+result);
     }
 
     @Test
@@ -174,6 +203,7 @@ public class NeuralNetTest {
             }
             else {
                 assertTrue(Math.abs(resultValue + 1.0/value) < 0.01); //shouldn't put too much zeros, i didn't get why
+                //because derivative of ln (1/value) = -1/value; initially there was (resultValue - (-1.0/value))
             }
 
         });

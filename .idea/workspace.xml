@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6791507-684c-43af-96b3-32434b9a3984" name="Changes" comment="26 - backprop through weights,">
+    <list default="true" id="f6791507-684c-43af-96b3-32434b9a3984" name="Changes" comment="27 - backprop through ReLu, completing the engine">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/matrix/Matrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/Matrix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neuralnetwork/Approximator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/Approximator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neuralnetwork/BatchResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/BatchResult.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/neuralnetwork/Engine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/Engine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/neuralnetwork/NeuralNetTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/neuralnetwork/NeuralNetTest.java" afterDir="false" />
     </list>
@@ -44,26 +47,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.editor",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit4&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.editor&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -72,7 +75,39 @@
       <recent name="matrix" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.NeuralNetTest.testEngine">
+  <component name="RunManager" selected="JUnit.NeuralNetTest.testSoftmaxCrossEntropyGradient">
+    <configuration name="NeuralNetTest.crossEntropy" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="neuralnetwork" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="neuralnetwork.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="neuralnetwork" />
+      <option name="MAIN_CLASS_NAME" value="neuralnetwork.NeuralNetTest" />
+      <option name="METHOD_NAME" value="crossEntropy" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NeuralNetTest.testAproximator" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="neuralnetwork" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="neuralnetwork.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="neuralnetwork" />
+      <option name="MAIN_CLASS_NAME" value="neuralnetwork.NeuralNetTest" />
+      <option name="METHOD_NAME" value="testAproximator" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="NeuralNetTest.testBackProp" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="neuralnetwork" />
       <extension name="coverage">
@@ -84,22 +119,6 @@
       <option name="PACKAGE_NAME" value="neuralnetwork" />
       <option name="MAIN_CLASS_NAME" value="neuralnetwork.NeuralNetTest" />
       <option name="METHOD_NAME" value="testBackProp" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="NeuralNetTest.testBackPropWeights" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="neuralnetwork" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="neuralnetwork.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="neuralnetwork" />
-      <option name="MAIN_CLASS_NAME" value="neuralnetwork.NeuralNetTest" />
-      <option name="METHOD_NAME" value="testBackPropWeights" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -137,29 +156,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NeuralNetTest.testTemp" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="neuralnetwork" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="neuralnetwork.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="neuralnetwork" />
-      <option name="MAIN_CLASS_NAME" value="neuralnetwork.NeuralNetTest" />
-      <option name="METHOD_NAME" value="testTemp" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.NeuralNetTest.testEngine" />
-        <item itemvalue="JUnit.NeuralNetTest.testBackProp" />
-        <item itemvalue="JUnit.NeuralNetTest.testBackPropWeights" />
         <item itemvalue="JUnit.NeuralNetTest.testSoftmaxCrossEntropyGradient" />
-        <item itemvalue="JUnit.NeuralNetTest.testTemp" />
+        <item itemvalue="JUnit.NeuralNetTest.testEngine" />
+        <item itemvalue="JUnit.NeuralNetTest.testAproximator" />
+        <item itemvalue="JUnit.NeuralNetTest.crossEntropy" />
+        <item itemvalue="JUnit.NeuralNetTest.testBackProp" />
       </list>
     </recent_temporary>
   </component>
@@ -197,7 +200,9 @@
       <workItem from="1724285259794" duration="2799000" />
       <workItem from="1724368891790" duration="16000" />
       <workItem from="1724369841152" duration="7589000" />
-      <workItem from="1724713882351" duration="7638000" />
+      <workItem from="1724713882351" duration="7701000" />
+      <workItem from="1724793416050" duration="11811000" />
+      <workItem from="1724889202225" duration="6516000" />
     </task>
     <task id="LOCAL-00001" summary="first push to nowhere">
       <option name="closed" value="true" />
@@ -415,7 +420,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724721967858</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="27 - backprop through ReLu, completing the engine">
+      <option name="closed" value="true" />
+      <created>1724722521513</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1724722521513</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -454,7 +467,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="4 - Perceptron AND" />
     <MESSAGE value="5-5  - OR, XOR, NOR, NAND, XNOR" />
     <MESSAGE value="6 - Matrix class, test, toString test" />
     <MESSAGE value="7 - modifying matrices, apply()" />
@@ -479,7 +491,8 @@
     <MESSAGE value="24 -backpropagating ReLu" />
     <MESSAGE value="25 - writing engine, runBackwards, BatchResult, Util," />
     <MESSAGE value="26 - backprop through weights," />
-    <option name="LAST_COMMIT_MESSAGE" value="26 - backprop through weights," />
+    <MESSAGE value="27 - backprop through ReLu, completing the engine" />
+    <option name="LAST_COMMIT_MESSAGE" value="27 - backprop through ReLu, completing the engine" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

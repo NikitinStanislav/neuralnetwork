@@ -60,7 +60,6 @@ public class Engine {
         Matrix softmaxOutput = ioIterator.next();
         Matrix error = softmaxOutput.apply((index, value) -> value - expected.get(index));
 
-
         while (transformsIterator.hasNext()){
             Transform transform = transformsIterator.next();
 

@@ -10,7 +10,7 @@ public class Approximator {
     public static Matrix gradient(Matrix input, Function<Matrix, Matrix> transform) {
 
         final double INC = 0.00001;
-        Matrix loss1 = transform.apply(input); //not clear, crossEntropy applied here
+        Matrix loss1 = transform.apply(input); //Function<T, R>, <T> – the type of the input to the function <R> – the type of the result of the function
 
         assert loss1.getColumns() == input.getColumns() : "Input/loss columns not equal";
         assert loss1.getRows() == 1 : "Transform doesn't return one single row";
@@ -24,6 +24,8 @@ public class Approximator {
            Matrix incremented = input.addIncrement(row, column, INC);   //one single value was incremented, rest of the matrix the same
 
             Matrix loss2 = transform.apply(incremented);
+            //если инкреметировано не ожидаемое значение, то кросс энтропия не изменится от этого,
+            // мы ж все левые значения умножаем на 0
 
             //System.out.println("loss2\n\n"+loss2);
 
