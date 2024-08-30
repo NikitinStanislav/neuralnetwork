@@ -12,6 +12,45 @@ public class NeuralNetTest {
 
     private Random random = new Random();
 
+    @Test
+    public void testWeightGradient() {
+        int inputRows = 3;
+        int outputRows = 4;
+
+        Matrix weights = Util.generateWeights(outputRows, inputRows); //because multiplication is coming
+        Matrix input = Util.generateInputMatrix(inputRows, 1);  //vector here
+        Matrix expected = Util.generateExpectedMatrix(outputRows, 1);
+
+        Matrix output = weights.multiply(input).softmax();
+
+        Matrix loss = LossFunctions.crossEntropy(expected, output);
+
+        System.out.println(input);
+        System.out.println(expected);
+        System.out.println(weights);
+        System.out.println("output\n"+output);
+        System.out.println("loss\n"+loss);
+
+        Matrix calculatedError = output.apply((index, value) -> value - expected.get(index));
+
+        System.out.println(calculatedError);
+
+        Matrix calculatedWeightGradient = calculatedError.multiply(input.transpose()); //то что в конспекте и 120 видео
+
+        System.out.println(calculatedWeightGradient);
+
+        Matrix approximatedWeightGradient = Approximator.weightGradient(weights, w -> {
+            Matrix out = w.multiply(input).softmax();
+            return LossFunctions.crossEntropy(expected, out);
+        });
+
+        System.out.println(approximatedWeightGradient);
+
+        calculatedWeightGradient.setTolerance(0.001);
+
+        assertEquals(calculatedWeightGradient, approximatedWeightGradient);
+
+    }
 
     @Test
     public void testBackProp(){

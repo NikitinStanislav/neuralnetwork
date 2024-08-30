@@ -8,9 +8,13 @@ public class Util {
 
     private static Random random = new Random();
 
+    private static Matrix generateMatrix(int rows, int columns){
+        return new Matrix(rows, columns, i -> random.nextGaussian());
+    }
+
     public static Matrix generateInputMatrix(int rows, int columns) {
 
-        return new Matrix(rows, columns, i -> random.nextGaussian());
+        return generateMatrix(rows, columns);
     }
 
     public static Matrix generateExpectedMatrix(int rows, int columns) {
@@ -22,5 +26,13 @@ public class Util {
         }
 
         return expected;
+    }
+
+    public static Matrix generateWeights(int rows, int columns){
+        return generateMatrix(rows, columns);
+    }
+
+    public static Matrix generateBiases(int rows){
+        return generateMatrix(rows, 1);
     }
 }

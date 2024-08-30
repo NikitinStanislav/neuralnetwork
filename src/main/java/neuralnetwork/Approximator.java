@@ -43,4 +43,26 @@ public class Approximator {
 
            return result;
         }
+
+        public static Matrix weightGradient(Matrix weights, Function<Matrix, Matrix> transform) { //если не понятно смотри выше
+
+            final double INC = 0.00001;
+            Matrix loss1 = transform.apply(weights);
+
+            System.out.println("loss1\n"+loss1);
+
+            Matrix result = new Matrix(weights.getRows(), weights.getColumns(), i -> 0);
+
+            weights.forEach((row, column, index, value) -> {
+                Matrix incremented = weights.addIncrement(row, column, INC);   //one single value was incremented, rest of the matrix the same
+
+                Matrix loss2 = transform.apply(incremented);
+
+                double rate =  (loss2.get(0) - loss1.get(0))/INC; //только это изменилось судя по всему
+
+                result.set(row, column, rate);
+            });
+
+            return result;
+        }
 }
