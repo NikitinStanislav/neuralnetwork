@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6791507-684c-43af-96b3-32434b9a3984" name="Changes" comment="29 - beginning of network training, weight gradient calculation and test">
+    <list default="true" id="f6791507-684c-43af-96b3-32434b9a3984" name="Changes" comment="30 - average column, average loss">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/matrix/Matrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/Matrix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/neuralnetwork/Approximator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/Approximator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/neuralnetwork/BatchResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/BatchResult.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/neuralnetwork/Engine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/Engine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/matrix/MatrixTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/matrix/MatrixTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neuralnetwork/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/Util.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/neuralnetwork/NeuralNetTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/neuralnetwork/NeuralNetTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -76,7 +75,7 @@
       <recent name="matrix" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MatrixTest.testAverageColumns">
+  <component name="RunManager" selected="JUnit.NeuralNetTest.testTrainEngine">
     <configuration name="Calculus" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="calculus.Calculus" />
       <module name="neuralnetwork" />
@@ -122,7 +121,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NeuralNetTest.testSoftmaxCrossEntropyGradient" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="NeuralNetTest.testTrainEngine" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="neuralnetwork" />
       <extension name="coverage">
         <pattern>
@@ -132,7 +131,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="neuralnetwork" />
       <option name="MAIN_CLASS_NAME" value="neuralnetwork.NeuralNetTest" />
-      <option name="METHOD_NAME" value="testSoftmaxCrossEntropyGradient" />
+      <option name="METHOD_NAME" value="testTrainEngine" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -156,11 +155,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.NeuralNetTest.testTrainEngine" />
         <item itemvalue="JUnit.MatrixTest.testAverageColumns" />
         <item itemvalue="JUnit.MatrixTest.testTranspose" />
         <item itemvalue="JUnit.NeuralNetTest.testWeightGradient" />
         <item itemvalue="Application.Calculus" />
-        <item itemvalue="JUnit.NeuralNetTest.testSoftmaxCrossEntropyGradient" />
       </list>
     </recent_temporary>
   </component>
@@ -202,7 +201,8 @@
       <workItem from="1724793416050" duration="11811000" />
       <workItem from="1724889202225" duration="7217000" />
       <workItem from="1724974426394" duration="7850000" />
-      <workItem from="1725292797211" duration="2257000" />
+      <workItem from="1725292797211" duration="6208000" />
+      <workItem from="1725318910501" duration="2517000" />
     </task>
     <task id="LOCAL-00001" summary="first push to nowhere">
       <option name="closed" value="true" />
@@ -444,7 +444,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724978934258</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="30 - average column, average loss">
+      <option name="closed" value="true" />
+      <created>1725295522328</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1725295522328</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -483,7 +491,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="7 - modifying matrices, apply()" />
     <MESSAGE value="8 - testEquals" />
     <MESSAGE value="9.1 - my multiply" />
     <MESSAGE value="9.2 - correct multiply with comments and old code" />
@@ -508,7 +515,8 @@
     <MESSAGE value="27 - backprop through ReLu, completing the engine" />
     <MESSAGE value="28 - comments while I tried to figure out all of this" />
     <MESSAGE value="29 - beginning of network training, weight gradient calculation and test" />
-    <option name="LAST_COMMIT_MESSAGE" value="29 - beginning of network training, weight gradient calculation and test" />
+    <MESSAGE value="30 - average column, average loss" />
+    <option name="LAST_COMMIT_MESSAGE" value="30 - average column, average loss" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

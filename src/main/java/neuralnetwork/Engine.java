@@ -16,6 +16,34 @@ public class Engine {
 
     private Random random = new Random();
 
+    public void adjust(BatchResult batchResult, double learningRate){
+        var weightsInput = batchResult.getWeightInputs();
+        var weightErrors = batchResult.getWeightErrors();
+
+        assert weightsInput.size() == weightErrors.size();
+        assert weightsInput.size() == weights.size();
+
+        for (int i = 0; i < weights.size(); i++) {
+            var weight = weights.get(i);
+            var bias = biases.get(i);
+            var error = weightErrors.get(i);
+            var input = weightsInput.get(i);
+
+            assert weight.getColumns() == input.getRows();
+
+            var weightAdjust = error.multiply(input.transpose());
+            var biasAdjust = error.averageColumn();
+
+            double rate = learningRate/weight.getColumns();
+
+            System.out.println(weight);
+            weight.modify((index, value) -> value - rate*weightAdjust.get(index));
+            System.out.println(weight);
+            bias.modify(((rows, columns, value) -> value - learningRate * biasAdjust.get(rows)));
+        }
+
+    }
+
     public void evaluate(BatchResult batchResult, Matrix expected){
         if (lossFunction != LossFunction.CROSS_ENTROPY){
             throw new UnsupportedOperationException("YOU'RE WRONG HERE! only Cross entropy is supported");
@@ -37,6 +65,9 @@ public class Engine {
 
         for (var tr: transforms){
             if (tr == Transform.DENSE){
+
+                batchResult.addWeightInput(output);
+
                 Matrix weight = weights.get(denseIndex);
                 Matrix bias = biases.get(denseIndex);
 
@@ -79,6 +110,8 @@ public class Engine {
                 case DENSE :
                     Matrix weight = weightIterator.next();
 
+                    batchResult.addWeightErrors(error);
+
                     if (weightIterator.hasNext() || storeInputError) {
                         error = weight.transpose().multiply(error);
                     }
@@ -90,7 +123,7 @@ public class Engine {
                 default : throw new UnsupportedOperationException("Not implemented");
             }
 
-            System.out.println(transform);
+            //System.out.println(transform);
         }
 
         if (storeInputError){

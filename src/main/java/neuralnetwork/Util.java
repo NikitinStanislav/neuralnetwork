@@ -35,4 +35,21 @@ public class Util {
     public static Matrix generateBiases(int rows){
         return generateMatrix(rows, 1);
     }
+
+    public static Matrix generateTrainableExpectedMatrix(int outputRows, Matrix input) { //not random but with respect to actual input?
+        Matrix expected = new Matrix(outputRows, input.getColumns());
+        //System.out.println(input);
+        Matrix columnSum = input.sumColumns(); //single row matrix containing the column sums of input
+        //System.out.println(columnSum);
+
+        columnSum.forEach((row, column, value) -> {
+            double rowIndex = (Math.sin(value) + 1) / 2.0; //when +1 -> values 0.0..2.0; when /2 -> values 0.0..1.0
+            //System.out.println(rowIndex);
+            rowIndex *= outputRows; // that's how you designate the row which will be a 1
+            //System.out.println((int)rowIndex);
+            expected.set((int)rowIndex, column, 1);
+        });
+        //System.out.println(expected);
+        return expected;
+    }
 }

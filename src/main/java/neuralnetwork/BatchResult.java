@@ -8,8 +8,17 @@ public class BatchResult {  //class for storing inputs and outputs
 
     private LinkedList<Matrix> io = new LinkedList<>(); //inputs gonna be an outputs eventually, except the first one
     private LinkedList<Matrix> weightErrors = new LinkedList<>();
+    private LinkedList<Matrix> weightInputs = new LinkedList<>();
     private Matrix inputError;
     private double averageLoss = 0.0;
+
+    public void addWeightInput(Matrix input) {
+        weightInputs.add(input);
+    }
+
+    public LinkedList<Matrix> getWeightInputs(){
+        return weightInputs;
+    }
 
     public LinkedList<Matrix> getIo(){
         return io;

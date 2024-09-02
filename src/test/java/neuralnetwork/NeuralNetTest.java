@@ -13,6 +13,39 @@ public class NeuralNetTest {
     private Random random = new Random();
 
     @Test
+    public void testTrainEngine(){
+        int inputRows = 4;
+        int cols = 5;
+        int outputRows = 6;
+
+        Matrix input = Util.generateInputMatrix(inputRows, cols);
+        Matrix expected = Util.generateTrainableExpectedMatrix(outputRows, input);
+
+        System.out.println("Input\n"+input);
+        System.out.println("Expected\n"+expected);
+
+        Engine engine = new Engine();
+        engine.add(Transform.DENSE, 6, inputRows);
+        engine.add(Transform.RELU);
+        engine.add(Transform.DENSE, outputRows);
+        engine.add(Transform.SOFTMAX);
+
+        BatchResult batchresult = engine.runForwards(input);
+        engine.evaluate(batchresult, expected);
+        double loss1 = batchresult.getAverageLoss();
+
+        engine.runBackwards(batchresult, expected);
+        engine.adjust(batchresult, 0.01);
+        batchresult = engine.runForwards(input);
+        engine.evaluate(batchresult, expected);
+
+        double loss2 = batchresult.getAverageLoss();
+        System.out.println(loss1);
+        System.out.println(loss2);
+
+    }
+
+    @Test
     public void testWeightGradient() {
         int inputRows = 3;
         int outputRows = 4;
