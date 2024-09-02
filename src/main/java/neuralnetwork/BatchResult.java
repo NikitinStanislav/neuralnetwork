@@ -9,6 +9,7 @@ public class BatchResult {  //class for storing inputs and outputs
     private LinkedList<Matrix> io = new LinkedList<>(); //inputs gonna be an outputs eventually, except the first one
     private LinkedList<Matrix> weightErrors = new LinkedList<>();
     private Matrix inputError;
+    private double averageLoss = 0.0;
 
     public LinkedList<Matrix> getIo(){
         return io;
@@ -36,5 +37,13 @@ public class BatchResult {  //class for storing inputs and outputs
 
     public void setInputError(Matrix inputError) {
         this.inputError = inputError;
+    }
+
+    public void setAverageLoss(double averageLoss) {
+        this.averageLoss = averageLoss;
+     }
+
+    public double getAverageLoss() {
+        return averageLoss;
     }
 }

@@ -49,8 +49,6 @@ public class Approximator {
             final double INC = 0.00001;
             Matrix loss1 = transform.apply(weights);
 
-            System.out.println("loss1\n"+loss1);
-
             Matrix result = new Matrix(weights.getRows(), weights.getColumns(), i -> 0);
 
             weights.forEach((row, column, index, value) -> {

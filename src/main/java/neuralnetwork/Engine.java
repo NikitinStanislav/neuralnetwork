@@ -16,6 +16,16 @@ public class Engine {
 
     private Random random = new Random();
 
+    public void evaluate(BatchResult batchResult, Matrix expected){
+        if (lossFunction != LossFunction.CROSS_ENTROPY){
+            throw new UnsupportedOperationException("YOU'RE WRONG HERE! only Cross entropy is supported");
+        }
+
+        double averageLoss = LossFunctions.crossEntropy(expected, batchResult.getOutput()).averageColumn().get(0);
+
+        batchResult.setAverageLoss(averageLoss);
+    }
+
     public BatchResult runForwards(Matrix input){
 
         BatchResult batchResult = new BatchResult();

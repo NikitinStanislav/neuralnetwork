@@ -281,4 +281,14 @@ public class Matrix {
          return result;
     }
 
+    public Matrix averageColumn() {
+        Matrix result = new Matrix(rows, 1);
+
+        forEach((row, column, index, value) -> {
+            result.a[row] += value/columns;
+        });
+
+        return result;
+    }
+
 }

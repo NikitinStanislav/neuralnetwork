@@ -11,6 +11,26 @@ public class MatrixTest {
     private Random random = new Random();
 
     @Test
+    public void testAverageColumns(){
+        int row = 3;
+        int col = 4;
+
+        Matrix matrix = new Matrix(row, col, index -> index * 1.5 - 2);
+        double averageIndex = (col - 1) / 2.0;
+
+        Matrix expected = new Matrix(row, 1);
+        expected.modify((rows, columns, value) -> (rows*col +averageIndex) * 1.5 - 2);
+
+        Matrix result = matrix.averageColumn();
+
+        System.out.println(matrix);
+        System.out.println(expected);
+        System.out.println(result);
+
+        assertEquals(result,expected);
+    }
+
+    @Test
     public void testTranspose(){
         Matrix m = new Matrix(2, 3, i -> i);
         System.out.println(m);
