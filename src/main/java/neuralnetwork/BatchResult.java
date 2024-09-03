@@ -11,6 +11,7 @@ public class BatchResult {  //class for storing inputs and outputs
     private LinkedList<Matrix> weightInputs = new LinkedList<>();
     private Matrix inputError;
     private double averageLoss = 0.0;
+    private double percentCorrect = 0.0;
 
     public void addWeightInput(Matrix input) {
         weightInputs.add(input);
@@ -54,5 +55,13 @@ public class BatchResult {  //class for storing inputs and outputs
 
     public double getAverageLoss() {
         return averageLoss;
+    }
+
+    public void setPercentCorrect(double percentCorrect) {
+        this.percentCorrect = percentCorrect;
+    }
+
+    public double getPercentCorrect() {
+        return percentCorrect;
     }
 }

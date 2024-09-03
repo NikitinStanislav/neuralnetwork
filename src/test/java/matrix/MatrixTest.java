@@ -11,6 +11,23 @@ public class MatrixTest {
     private Random random = new Random();
 
     @Test
+    public void testGreatestRowNumber() { //what row of each column has the greatest number
+
+        double[] values = {2, 4, -5, 6, 2, -3, -5, 1, 2};
+        Matrix m = new Matrix(3, 3, i -> values[i]);
+
+        double[] expectedValues = {1, 0, 2};
+        Matrix expected = new Matrix(1, 3, i -> expectedValues[i]);
+
+        Matrix result = m.getGreatestRowNumbers();
+
+//        System.out.println(m);
+//        System.out.println(result);
+
+        assertEquals(expected, result);
+    }
+
+    @Test
     public void testAverageColumns(){
         int row = 3;
         int col = 4;

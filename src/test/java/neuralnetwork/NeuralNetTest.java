@@ -40,8 +40,12 @@ public class NeuralNetTest {
         engine.evaluate(batchresult, expected);
 
         double loss2 = batchresult.getAverageLoss();
+        double percentCorrect = batchresult.getPercentCorrect();
+
+
         System.out.println(loss1);
         System.out.println(loss2);
+        System.out.println(percentCorrect );
 
     }
 

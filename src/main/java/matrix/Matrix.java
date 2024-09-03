@@ -300,4 +300,23 @@ public class Matrix {
         return result;
     }
 
+    public Matrix getGreatestRowNumbers(){
+        Matrix result = new Matrix(1, columns);
+
+        double[] greatest = new double[columns];
+
+        for (int i = 0; i < columns; i++) {  //if one day we want negative values for some reason
+            greatest[i] = Double.MIN_VALUE;
+        }
+
+        forEach(((row, column, value) -> {
+            if (value > greatest[column]){
+                greatest[column] = value;
+                result.a[column] = row;
+            }
+        }));
+
+        return result;
+    }
+
 }

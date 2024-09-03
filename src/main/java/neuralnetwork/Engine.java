@@ -51,7 +51,20 @@ public class Engine {
 
         double averageLoss = LossFunctions.crossEntropy(expected, batchResult.getOutput()).averageColumn().get(0);
 
+        Matrix predictions = batchResult.getOutput().getGreatestRowNumbers();
+        Matrix actual = expected.getGreatestRowNumbers();
+        
+        int correct = 0;
+        for (int i = 0; i < actual.getColumns(); i++) {
+            if ((int)actual.get(i) == (int)predictions.get(i)){
+                ++correct;
+            }
+        }
+
+        double percentCorrect = 100 * correct / actual.getColumns();
+
         batchResult.setAverageLoss(averageLoss);
+        batchResult.setPercentCorrect(percentCorrect);
     }
 
     public BatchResult runForwards(Matrix input){

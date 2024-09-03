@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6791507-684c-43af-96b3-32434b9a3984" name="Changes" comment="30 - average column, average loss">
+    <list default="true" id="f6791507-684c-43af-96b3-32434b9a3984" name="Changes" comment="31 - network is trained, completed adjust method">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/matrix/Matrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/Matrix.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/neuralnetwork/BatchResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/BatchResult.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/neuralnetwork/Engine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/Engine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/neuralnetwork/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/Util.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/matrix/MatrixTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/matrix/MatrixTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/neuralnetwork/NeuralNetTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/neuralnetwork/NeuralNetTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -76,19 +76,6 @@
     </key>
   </component>
   <component name="RunManager" selected="JUnit.NeuralNetTest.testTrainEngine">
-    <configuration name="Calculus" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="calculus.Calculus" />
-      <module name="neuralnetwork" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="calculus.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="MatrixTest.testAverageColumns" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="neuralnetwork" />
       <extension name="coverage">
@@ -100,6 +87,22 @@
       <option name="PACKAGE_NAME" value="matrix" />
       <option name="MAIN_CLASS_NAME" value="matrix.MatrixTest" />
       <option name="METHOD_NAME" value="testAverageColumns" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MatrixTest.testGreatestRowNumber" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="neuralnetwork" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="matrix.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="matrix" />
+      <option name="MAIN_CLASS_NAME" value="matrix.MatrixTest" />
+      <option name="METHOD_NAME" value="testGreatestRowNumber" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -156,10 +159,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.NeuralNetTest.testTrainEngine" />
+        <item itemvalue="JUnit.MatrixTest.testGreatestRowNumber" />
         <item itemvalue="JUnit.MatrixTest.testAverageColumns" />
         <item itemvalue="JUnit.MatrixTest.testTranspose" />
         <item itemvalue="JUnit.NeuralNetTest.testWeightGradient" />
-        <item itemvalue="Application.Calculus" />
       </list>
     </recent_temporary>
   </component>
@@ -202,7 +205,7 @@
       <workItem from="1724889202225" duration="7217000" />
       <workItem from="1724974426394" duration="7850000" />
       <workItem from="1725292797211" duration="6208000" />
-      <workItem from="1725318910501" duration="2517000" />
+      <workItem from="1725318910501" duration="5101000" />
     </task>
     <task id="LOCAL-00001" summary="first push to nowhere">
       <option name="closed" value="true" />
@@ -452,7 +455,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725295522328</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="31 - network is trained, completed adjust method">
+      <option name="closed" value="true" />
+      <created>1725321522080</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1725321522080</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -491,7 +502,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="8 - testEquals" />
     <MESSAGE value="9.1 - my multiply" />
     <MESSAGE value="9.2 - correct multiply with comments and old code" />
     <MESSAGE value="10 - timing before optimization" />
@@ -516,7 +526,8 @@
     <MESSAGE value="28 - comments while I tried to figure out all of this" />
     <MESSAGE value="29 - beginning of network training, weight gradient calculation and test" />
     <MESSAGE value="30 - average column, average loss" />
-    <option name="LAST_COMMIT_MESSAGE" value="30 - average column, average loss" />
+    <MESSAGE value="31 - network is trained, completed adjust method" />
+    <option name="LAST_COMMIT_MESSAGE" value="31 - network is trained, completed adjust method" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
