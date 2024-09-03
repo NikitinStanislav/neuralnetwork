@@ -13,16 +13,15 @@ public class NeuralNetTest {
     private Random random = new Random();
 
     @Test
-    public void testTrainEngine(){
-        int inputRows = 4;
-        int cols = 5;
-        int outputRows = 6;
+    public void testTrainEngine() {
+        int inputRows = 500;
+        int cols = 32;
+        int outputRows = 3;
 
-        Matrix input = Util.generateInputMatrix(inputRows, cols);
-        Matrix expected = Util.generateTrainableExpectedMatrix(outputRows, input);
 
-        System.out.println("Input\n"+input);
-        System.out.println("Expected\n"+expected);
+
+        //System.out.println("Input\n" + input);
+        //System.out.println("Expected\n" + expected);
 
         Engine engine = new Engine();
         engine.add(Transform.DENSE, 6, inputRows);
@@ -30,23 +29,19 @@ public class NeuralNetTest {
         engine.add(Transform.DENSE, outputRows);
         engine.add(Transform.SOFTMAX);
 
-        BatchResult batchresult = engine.runForwards(input);
-        engine.evaluate(batchresult, expected);
-        double loss1 = batchresult.getAverageLoss();
+        for (int i = 0; i < 20; i++) {
+            Matrix input = Util.generateInputMatrix(inputRows, cols);
+            Matrix expected = Util.generateTrainableExpectedMatrix(outputRows, input);
+            BatchResult batchresult = engine.runForwards(input);
+            engine.runBackwards(batchresult, expected);
+            engine.adjust(batchresult, 0.01);
+            engine.evaluate(batchresult, expected);
 
-        engine.runBackwards(batchresult, expected);
-        engine.adjust(batchresult, 0.01);
-        batchresult = engine.runForwards(input);
-        engine.evaluate(batchresult, expected);
+            double loss = batchresult.getAverageLoss();
+            double percentCorrect = batchresult.getPercentCorrect();
 
-        double loss2 = batchresult.getAverageLoss();
-        double percentCorrect = batchresult.getPercentCorrect();
-
-
-        System.out.println(loss1);
-        System.out.println(loss2);
-        System.out.println(percentCorrect );
-
+            System.out.printf("Loss - %.3f, Percentage correct - %.2f\n", loss, percentCorrect);
+        }
     }
 
     @Test

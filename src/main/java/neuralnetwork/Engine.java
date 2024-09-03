@@ -36,9 +36,9 @@ public class Engine {
 
             double rate = learningRate/weight.getColumns();
 
-            System.out.println(weight);
+            //System.out.println(weight);
             weight.modify((index, value) -> value - rate*weightAdjust.get(index));
-            System.out.println(weight);
+            //System.out.println(weight);
             bias.modify(((rows, columns, value) -> value - learningRate * biasAdjust.get(rows)));
         }
 
