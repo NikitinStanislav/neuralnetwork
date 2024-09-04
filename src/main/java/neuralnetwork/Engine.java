@@ -35,6 +35,7 @@ public class Engine {
             var biasAdjust = error.averageColumn();
 
             double rate = learningRate/weight.getColumns();
+            //double rate = learningRate/input.getColumns();
 
             //System.out.println(weight);
             weight.modify((index, value) -> value - rate*weightAdjust.get(index));

@@ -18,29 +18,33 @@ public class NeuralNetTest {
         int cols = 32;
         int outputRows = 3;
 
-
-
-        //System.out.println("Input\n" + input);
-        //System.out.println("Expected\n" + expected);
-
         Engine engine = new Engine();
-        engine.add(Transform.DENSE, 6, inputRows);
+        engine.add(Transform.DENSE, 100, inputRows);
         engine.add(Transform.RELU);
         engine.add(Transform.DENSE, outputRows);
         engine.add(Transform.SOFTMAX);
 
-        for (int i = 0; i < 20; i++) {
-            Matrix input = Util.generateInputMatrix(inputRows, cols);
-            Matrix expected = Util.generateTrainableExpectedMatrix(outputRows, input);
+        RunningAverages runningAverages = new RunningAverages(2, 2000, ((callNumber, averages) ->{
+            System.out.printf("%d. Loss: %.3f -- Percent correct: %.2f\n", callNumber, averages[0], averages[1]);
+        }));
+
+        double initialLearningRate = 0.02;
+        double learningRate = initialLearningRate;
+        double iterations = 200000;
+
+        for (int i = 0; i < iterations; i++) {
+            var tm = Util.generateTrainingMatrices(inputRows, outputRows, cols);
+            var input = tm.getInput();
+            var expected = tm.getOutput();
+
             BatchResult batchresult = engine.runForwards(input);
             engine.runBackwards(batchresult, expected);
-            engine.adjust(batchresult, 0.01);
+            engine.adjust(batchresult, learningRate);
             engine.evaluate(batchresult, expected);
 
-            double loss = batchresult.getAverageLoss();
-            double percentCorrect = batchresult.getPercentCorrect();
+            runningAverages.add(batchresult.getAverageLoss(), batchresult.getPercentCorrect());
 
-            System.out.printf("Loss - %.3f, Percentage correct - %.2f\n", loss, percentCorrect);
+            learningRate -= (initialLearningRate/iterations);
         }
     }
 

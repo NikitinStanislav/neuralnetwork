@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6791507-684c-43af-96b3-32434b9a3984" name="Changes" comment="32 - added greatestRowNumbers and percentageCorrect">
+    <list default="true" id="f6791507-684c-43af-96b3-32434b9a3984" name="Changes" comment="33 - repeated training">
+      <change afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/RunningAverages.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/TrainingMatrices.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/neuralnetwork/Engine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/Engine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neuralnetwork/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/Util.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/neuralnetwork/NeuralNetTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/neuralnetwork/NeuralNetTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -18,8 +21,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JUnit4 Test Class" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -202,7 +205,8 @@
       <workItem from="1724889202225" duration="7217000" />
       <workItem from="1724974426394" duration="7850000" />
       <workItem from="1725292797211" duration="6208000" />
-      <workItem from="1725318910501" duration="6029000" />
+      <workItem from="1725318910501" duration="10546000" />
+      <workItem from="1725408303596" duration="4841000" />
     </task>
     <task id="LOCAL-00001" summary="first push to nowhere">
       <option name="closed" value="true" />
@@ -468,7 +472,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725325985600</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="33 - repeated training">
+      <option name="closed" value="true" />
+      <created>1725327109100</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1725327109100</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -507,7 +519,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="9.2 - correct multiply with comments and old code" />
     <MESSAGE value="10 - timing before optimization" />
     <MESSAGE value="11 - timing after optimization" />
     <MESSAGE value="12 - Activation functions: test adding biases" />
@@ -532,7 +543,8 @@
     <MESSAGE value="30 - average column, average loss" />
     <MESSAGE value="31 - network is trained, completed adjust method" />
     <MESSAGE value="32 - added greatestRowNumbers and percentageCorrect" />
-    <option name="LAST_COMMIT_MESSAGE" value="32 - added greatestRowNumbers and percentageCorrect" />
+    <MESSAGE value="33 - repeated training" />
+    <option name="LAST_COMMIT_MESSAGE" value="33 - repeated training" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

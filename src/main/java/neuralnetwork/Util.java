@@ -52,4 +52,33 @@ public class Util {
         //System.out.println(expected);
         return expected;
     }
+
+    public static TrainingMatrices generateTrainingMatrices(int inputRows, int outputRows, int columns){
+        Matrix input = new Matrix(inputRows, columns);
+        Matrix output = new Matrix(outputRows, columns);
+
+        for (int col = 0; col < columns; col++) {
+            int radius = random.nextInt(outputRows);
+
+            double[] values = new double[inputRows];
+
+            double initialRadius = 0;
+
+            for (int row = 0; row < inputRows; row++) {
+                double value = random.nextGaussian();
+                values[row] = value;
+                initialRadius += value * value;
+            }
+
+            initialRadius = Math.sqrt(initialRadius);
+
+            for (int row = 0; row < inputRows; row++) {
+                input.set(row, col, values[row]*radius/initialRadius);
+            }
+
+            output.set(radius, col, 1);
+        }
+        
+        return new TrainingMatrices(input, output);
+    }
 }
