@@ -57,6 +57,24 @@ public class Matrix {
         }
     }
 
+    public Matrix(int rows, int columns, double[] values) {
+        this.rows = rows;
+        this.columns = columns;
+
+        Matrix temp = new Matrix(columns, rows);
+        temp.a = values;
+        Matrix transposed = temp.transpose();
+        a = transposed.getA();
+    }
+
+    public double sum() {
+        double sum = 0.0;
+        for (int i = 0; i < a.length; i++) {
+            sum += a[i];
+        }
+        return sum;
+    }
+
     public String toString(boolean showValues){
         if (showValues) {
             return toString();

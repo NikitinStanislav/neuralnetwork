@@ -54,31 +54,75 @@ public class Util {
     }
 
     public static TrainingMatrices generateTrainingMatrices(int inputRows, int outputRows, int columns){
+        var io = generateTrainingArrays(inputRows, outputRows, columns);
+
+        Matrix input = new Matrix(inputRows, columns, io.getInput());
+        Matrix output = new Matrix(outputRows, columns, io.getOutput());
+        
+        return new TrainingMatrices(input, output);
+    }
+
+    public static TrainingArrays generateTrainingArrays(int inputSize, int outputSize, int numberItems){
+        double[] input = new double[inputSize * numberItems];
+        double[] output = new double[outputSize * numberItems];
+
+        int inputPos = 0;
+        int outputPos = 0;
+
+
+        for (int col = 0; col < numberItems; col++) {  //each column is coordinate of n-dimensional sphere, where n==rows
+            int radius = random.nextInt(outputSize); //0..(outputRows-1)
+
+            double[] values = new double[inputSize];
+
+            double initialRadius = 0;
+
+            for (int row = 0; row < inputSize; row++) {
+                double value = random.nextGaussian(); //0..1, keep in mind
+                values[row] = value;
+                initialRadius += value * value;
+            }
+
+            initialRadius = Math.sqrt(initialRadius); //x^2 + y^2 + z^2 = R^2 formula
+
+            for (int row = 0; row < inputSize; row++) {
+                input[inputPos++] = values[row] * radius / initialRadius;
+            }
+
+            output[outputPos + radius] = 1;
+
+            outputPos += outputSize;
+        }
+
+        return new TrainingArrays(input, output);
+    }
+
+    /*public static TrainingMatrices generateTrainingMatrices(int inputRows, int outputRows, int columns){
         Matrix input = new Matrix(inputRows, columns);
         Matrix output = new Matrix(outputRows, columns);
 
-        for (int col = 0; col < columns; col++) {
-            int radius = random.nextInt(outputRows);
+        for (int col = 0; col < columns; col++) {  //each column is coordinate of n-dimensional sphere, where n==rows
+            int radius = random.nextInt(outputRows); //0..(outputRows-1)
 
             double[] values = new double[inputRows];
 
             double initialRadius = 0;
 
             for (int row = 0; row < inputRows; row++) {
-                double value = random.nextGaussian();
+                double value = random.nextGaussian(); //0..1, keep in mind
                 values[row] = value;
                 initialRadius += value * value;
             }
 
-            initialRadius = Math.sqrt(initialRadius);
+            initialRadius = Math.sqrt(initialRadius); //x^2 + y^2 + z^2 = R^2 formula
 
             for (int row = 0; row < inputRows; row++) {
                 input.set(row, col, values[row]*radius/initialRadius);
             }
 
-            output.set(radius, col, 1);
+            output.set(radius, col, 1); //generating expected
         }
-        
+
         return new TrainingMatrices(input, output);
-    }
+    }*/
 }

@@ -4,13 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6791507-684c-43af-96b3-32434b9a3984" name="Changes" comment="33 - repeated training">
-      <change afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/RunningAverages.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/TrainingMatrices.java" afterDir="false" />
+    <list default="true" id="f6791507-684c-43af-96b3-32434b9a3984" name="Changes" comment="34 - new training data, hypersphere, averaging outputs, tweaking a learning rate">
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/NeuralNetwork.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/TrainingArrays.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/loader/AbstractBatchData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/loader/AbstractMeteData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/loader/BatchData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/loader/Loader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/loader/MetaData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/loader/test/TestBatchData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/loader/test/TestLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/loader/test/TestMetaData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/neuralnetwork/loader/test/TestTestLoader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/neuralnetwork/Engine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/Engine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/matrix/Matrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/Matrix.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/neuralnetwork/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/Util.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/neuralnetwork/NeuralNetTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/neuralnetwork/NeuralNetTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +31,7 @@
       <list>
         <option value="JUnit4 Test Class" />
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -75,7 +85,20 @@
       <recent name="matrix" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.NeuralNetTest.testTrainEngine">
+  <component name="RunManager" selected="JUnit.TestTestLoader.test">
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="app.App" />
+      <module name="neuralnetwork" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="app.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MatrixTest.testAverageColumns" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="neuralnetwork" />
       <extension name="coverage">
@@ -108,22 +131,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MatrixTest.testTranspose" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="neuralnetwork" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="matrix.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="matrix" />
-      <option name="MAIN_CLASS_NAME" value="matrix.MatrixTest" />
-      <option name="METHOD_NAME" value="testTranspose" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="NeuralNetTest.testTrainEngine" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="neuralnetwork" />
       <extension name="coverage">
@@ -140,17 +147,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NeuralNetTest.testWeightGradient" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestTestLoader.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="neuralnetwork" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="neuralnetwork.*" />
+          <option name="PATTERN" value="neuralnetwork.loader.test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="neuralnetwork" />
-      <option name="MAIN_CLASS_NAME" value="neuralnetwork.NeuralNetTest" />
-      <option name="METHOD_NAME" value="testWeightGradient" />
+      <option name="PACKAGE_NAME" value="neuralnetwork.loader.test" />
+      <option name="MAIN_CLASS_NAME" value="neuralnetwork.loader.test.TestTestLoader" />
+      <option name="METHOD_NAME" value="test" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -158,11 +165,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TestTestLoader.test" />
         <item itemvalue="JUnit.NeuralNetTest.testTrainEngine" />
+        <item itemvalue="Application.App" />
         <item itemvalue="JUnit.MatrixTest.testGreatestRowNumber" />
         <item itemvalue="JUnit.MatrixTest.testAverageColumns" />
-        <item itemvalue="JUnit.MatrixTest.testTranspose" />
-        <item itemvalue="JUnit.NeuralNetTest.testWeightGradient" />
       </list>
     </recent_temporary>
   </component>
@@ -206,7 +213,9 @@
       <workItem from="1724974426394" duration="7850000" />
       <workItem from="1725292797211" duration="6208000" />
       <workItem from="1725318910501" duration="10546000" />
-      <workItem from="1725408303596" duration="4841000" />
+      <workItem from="1725408303596" duration="5553000" />
+      <workItem from="1725536850055" duration="2700000" />
+      <workItem from="1725580215461" duration="8537000" />
     </task>
     <task id="LOCAL-00001" summary="first push to nowhere">
       <option name="closed" value="true" />
@@ -480,7 +489,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725327109100</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="34 - new training data, hypersphere, averaging outputs, tweaking a learning rate">
+      <option name="closed" value="true" />
+      <created>1725413318716</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1725413318716</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -519,7 +536,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="10 - timing before optimization" />
     <MESSAGE value="11 - timing after optimization" />
     <MESSAGE value="12 - Activation functions: test adding biases" />
     <MESSAGE value="13 - Activation functions: ReLu implementation" />
@@ -544,7 +560,8 @@
     <MESSAGE value="31 - network is trained, completed adjust method" />
     <MESSAGE value="32 - added greatestRowNumbers and percentageCorrect" />
     <MESSAGE value="33 - repeated training" />
-    <option name="LAST_COMMIT_MESSAGE" value="33 - repeated training" />
+    <MESSAGE value="34 - new training data, hypersphere, averaging outputs, tweaking a learning rate" />
+    <option name="LAST_COMMIT_MESSAGE" value="34 - new training data, hypersphere, averaging outputs, tweaking a learning rate" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
