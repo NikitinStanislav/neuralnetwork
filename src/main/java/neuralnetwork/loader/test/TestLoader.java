@@ -52,7 +52,7 @@ public class TestLoader implements Loader {
     }
 
     @Override
-    public BatchData readBatch() {
+    public synchronized BatchData readBatch() {
         if(totalItemsRead == numberItems) {
             return null;
         }
@@ -62,10 +62,10 @@ public class TestLoader implements Loader {
 
         int excessItems = totalItemsRead - numberItems;
 
-        if (excessItems > 0) {
-            totalItemsRead -= excessItems;
-            itemsRead -= excessItems;
-        }
+            if (excessItems > 0) {
+                totalItemsRead -= excessItems;
+                itemsRead -= excessItems;
+            }
 
         var io = Util.generateTrainingArrays(inputSize, expectedSize, itemsRead);
 

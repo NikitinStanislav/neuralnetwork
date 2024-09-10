@@ -2,19 +2,25 @@ package neuralnetwork;
 
 import matrix.Matrix;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.Random;
 
-public class Engine {
+public class Engine implements Serializable {
     private LinkedList<Transform> transforms = new LinkedList<>();
     private LinkedList<Matrix> weights = new LinkedList<>();
     private LinkedList<Matrix> biases = new LinkedList<>();
 
     private LossFunction lossFunction = LossFunction.CROSS_ENTROPY;
+    private double scaleInitialWeights = 1;
 
     private boolean storeInputError = false;
 
     private Random random = new Random();
+
+    public void setScaleInitialWeights(double scaleInitialWeights) {
+        this.scaleInitialWeights = scaleInitialWeights;
+    }
 
     public void adjust(BatchResult batchResult, double learningRate){
         var weightsInput = batchResult.getWeightInputs();
@@ -155,8 +161,8 @@ public class Engine {
              * что тоже логично на самом деле, смотри схематичеки */
             int weightsPerNeron = weights.isEmpty() ? (int)params[1] : weights.getLast().getRows();
 
-            Matrix weight = new Matrix(numberNeurons, weightsPerNeron, i -> random.nextGaussian());
-            Matrix bias = new Matrix(numberNeurons, 1, i -> random.nextGaussian());
+            Matrix weight = new Matrix(numberNeurons, weightsPerNeron, i -> scaleInitialWeights * random.nextGaussian());
+            Matrix bias = new Matrix(numberNeurons, 1, i -> 0);
 
             weights.add(weight);
             biases.add(bias);
@@ -167,6 +173,9 @@ public class Engine {
     @Override
     public String toString(){
         StringBuilder sb = new StringBuilder();
+
+        sb.append(String.format("Scale initial weights: %.3f\n", scaleInitialWeights));
+        sb.append("\nTransforms:\n");
 
         int weigthIndex = 0;
         for (var tr : transforms){

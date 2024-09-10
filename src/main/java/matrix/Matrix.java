@@ -1,9 +1,10 @@
 package matrix;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class Matrix {
+public class Matrix implements Serializable {
 
     private static final String NUMBER_FORMAT = "%+10.5f";
     private Double tolerance = 0.001;

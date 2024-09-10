@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6791507-684c-43af-96b3-32434b9a3984" name="Changes" comment="35 - Metadata, Loader, TestLoader, changes in Util">
+    <list default="true" id="f6791507-684c-43af-96b3-32434b9a3984" name="Changes" comment="36 - implementing RunBatch">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/matrix/Matrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/Matrix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neuralnetwork/Engine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/Engine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/neuralnetwork/NeuralNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/NeuralNetwork.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/neuralnetwork/loader/test/TestLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/loader/test/TestLoader.java" afterDir="false" />
     </list>
@@ -206,7 +208,7 @@
       <workItem from="1725536850055" duration="2700000" />
       <workItem from="1725580215461" duration="8634000" />
       <workItem from="1725719706498" duration="2655000" />
-      <workItem from="1725925109564" duration="1265000" />
+      <workItem from="1725925109564" duration="8672000" />
     </task>
     <task id="LOCAL-00001" summary="first push to nowhere">
       <option name="closed" value="true" />
@@ -496,7 +498,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725589676082</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="36 - implementing RunBatch">
+      <option name="closed" value="true" />
+      <created>1725926631819</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1725926631819</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -535,7 +545,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="12 - Activation functions: test adding biases" />
     <MESSAGE value="13 - Activation functions: ReLu implementation" />
     <MESSAGE value="14 - Softmax implemented, building engine" />
     <MESSAGE value="15 - Mocked untrained network" />
@@ -560,7 +569,8 @@
     <MESSAGE value="33 - repeated training" />
     <MESSAGE value="34 - new training data, hypersphere, averaging outputs, tweaking a learning rate" />
     <MESSAGE value="35 - Metadata, Loader, TestLoader, changes in Util" />
-    <option name="LAST_COMMIT_MESSAGE" value="35 - Metadata, Loader, TestLoader, changes in Util" />
+    <MESSAGE value="36 - implementing RunBatch" />
+    <option name="LAST_COMMIT_MESSAGE" value="36 - implementing RunBatch" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
