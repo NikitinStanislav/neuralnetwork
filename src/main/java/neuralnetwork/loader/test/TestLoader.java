@@ -7,10 +7,10 @@ import neuralnetwork.loader.MetaData;
 
 public class TestLoader implements Loader {
 
-    private int numberItems; //total number of items available for running through the network
+    private int numberItems = 9; //total number of items available for running through the network
     private int inputSize = 500; //how many items in single column (single instance)
     private int expectedSize = 3; //same as expected data
-    private int batchSize;
+    private int batchSize = 0;
     private int numberBathes;
 
     private int totalItemsRead;
@@ -43,7 +43,7 @@ public class TestLoader implements Loader {
 
     @Override
     public void close() {
-
+        totalItemsRead = 0;
     }
 
     @Override

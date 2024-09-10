@@ -4,22 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6791507-684c-43af-96b3-32434b9a3984" name="Changes" comment="34 - new training data, hypersphere, averaging outputs, tweaking a learning rate">
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/NeuralNetwork.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/TrainingArrays.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/loader/AbstractBatchData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/loader/AbstractMeteData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/loader/BatchData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/loader/Loader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/loader/MetaData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/loader/test/TestBatchData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/loader/test/TestLoader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/loader/test/TestMetaData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/neuralnetwork/loader/test/TestTestLoader.java" afterDir="false" />
+    <list default="true" id="f6791507-684c-43af-96b3-32434b9a3984" name="Changes" comment="35 - Metadata, Loader, TestLoader, changes in Util">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/matrix/Matrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/Matrix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/neuralnetwork/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/Util.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neuralnetwork/NeuralNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/NeuralNetwork.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neuralnetwork/loader/test/TestLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/loader/test/TestLoader.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +74,7 @@
       <recent name="matrix" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TestTestLoader.test">
+  <component name="RunManager" selected="Application.App">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="app.App" />
       <module name="neuralnetwork" />
@@ -165,9 +154,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.App" />
         <item itemvalue="JUnit.TestTestLoader.test" />
         <item itemvalue="JUnit.NeuralNetTest.testTrainEngine" />
-        <item itemvalue="Application.App" />
         <item itemvalue="JUnit.MatrixTest.testGreatestRowNumber" />
         <item itemvalue="JUnit.MatrixTest.testAverageColumns" />
       </list>
@@ -215,7 +204,9 @@
       <workItem from="1725318910501" duration="10546000" />
       <workItem from="1725408303596" duration="5553000" />
       <workItem from="1725536850055" duration="2700000" />
-      <workItem from="1725580215461" duration="8537000" />
+      <workItem from="1725580215461" duration="8634000" />
+      <workItem from="1725719706498" duration="2655000" />
+      <workItem from="1725925109564" duration="1265000" />
     </task>
     <task id="LOCAL-00001" summary="first push to nowhere">
       <option name="closed" value="true" />
@@ -497,7 +488,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725413318716</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="35 - Metadata, Loader, TestLoader, changes in Util">
+      <option name="closed" value="true" />
+      <created>1725589676082</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1725589676082</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -536,7 +535,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="11 - timing after optimization" />
     <MESSAGE value="12 - Activation functions: test adding biases" />
     <MESSAGE value="13 - Activation functions: ReLu implementation" />
     <MESSAGE value="14 - Softmax implemented, building engine" />
@@ -561,7 +559,8 @@
     <MESSAGE value="32 - added greatestRowNumbers and percentageCorrect" />
     <MESSAGE value="33 - repeated training" />
     <MESSAGE value="34 - new training data, hypersphere, averaging outputs, tweaking a learning rate" />
-    <option name="LAST_COMMIT_MESSAGE" value="34 - new training data, hypersphere, averaging outputs, tweaking a learning rate" />
+    <MESSAGE value="35 - Metadata, Loader, TestLoader, changes in Util" />
+    <option name="LAST_COMMIT_MESSAGE" value="35 - Metadata, Loader, TestLoader, changes in Util" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
