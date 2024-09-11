@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6791507-684c-43af-96b3-32434b9a3984" name="Changes" comment="36 - implementing RunBatch">
+    <list default="true" id="f6791507-684c-43af-96b3-32434b9a3984" name="Changes" comment="37 - Multithreading, save/load file">
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/GeneratedDataApp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/loader/image/ImageLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/loader/image/ImageMetaData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/loader/image/LoaderException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/matrix/Matrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/matrix/Matrix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/neuralnetwork/Engine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/Engine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/neuralnetwork/NeuralNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/NeuralNetwork.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/neuralnetwork/loader/test/TestLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/loader/test/TestLoader.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,6 +80,7 @@
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="app.App" />
       <module name="neuralnetwork" />
+      <option name="PROGRAM_PARAMETERS" value="..\neuralnetwork\src\main\java\data\MNIST" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="app.*" />
@@ -90,18 +91,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MatrixTest.testAverageColumns" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GeneratedDataApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="app.GeneratedDataApp" />
       <module name="neuralnetwork" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="matrix.*" />
+          <option name="PATTERN" value="app.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="matrix" />
-      <option name="MAIN_CLASS_NAME" value="matrix.MatrixTest" />
-      <option name="METHOD_NAME" value="testAverageColumns" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -157,10 +155,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.App" />
+        <item itemvalue="Application.GeneratedDataApp" />
         <item itemvalue="JUnit.TestTestLoader.test" />
         <item itemvalue="JUnit.NeuralNetTest.testTrainEngine" />
         <item itemvalue="JUnit.MatrixTest.testGreatestRowNumber" />
-        <item itemvalue="JUnit.MatrixTest.testAverageColumns" />
       </list>
     </recent_temporary>
   </component>
@@ -208,7 +206,8 @@
       <workItem from="1725536850055" duration="2700000" />
       <workItem from="1725580215461" duration="8634000" />
       <workItem from="1725719706498" duration="2655000" />
-      <workItem from="1725925109564" duration="8672000" />
+      <workItem from="1725925109564" duration="9579000" />
+      <workItem from="1726011442406" duration="9742000" />
     </task>
     <task id="LOCAL-00001" summary="first push to nowhere">
       <option name="closed" value="true" />
@@ -506,7 +505,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725926631819</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="37 - Multithreading, save/load file">
+      <option name="closed" value="true" />
+      <created>1725934119412</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1725934119412</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -545,7 +552,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="13 - Activation functions: ReLu implementation" />
     <MESSAGE value="14 - Softmax implemented, building engine" />
     <MESSAGE value="15 - Mocked untrained network" />
     <MESSAGE value="17 - Cross entropy&#10;&#10;(cherry picked from commit 0e8eca7c682949c7b83a9865d8868266bb59267d)" />
@@ -570,7 +576,8 @@
     <MESSAGE value="34 - new training data, hypersphere, averaging outputs, tweaking a learning rate" />
     <MESSAGE value="35 - Metadata, Loader, TestLoader, changes in Util" />
     <MESSAGE value="36 - implementing RunBatch" />
-    <option name="LAST_COMMIT_MESSAGE" value="36 - implementing RunBatch" />
+    <MESSAGE value="37 - Multithreading, save/load file" />
+    <option name="LAST_COMMIT_MESSAGE" value="37 - Multithreading, save/load file" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
