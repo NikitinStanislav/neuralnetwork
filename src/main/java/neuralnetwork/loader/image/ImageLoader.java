@@ -6,6 +6,8 @@ import neuralnetwork.loader.Loader;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class ImageLoader implements Loader {
     private String imageFileName;
@@ -18,6 +20,7 @@ public class ImageLoader implements Loader {
     private DataInputStream dsLabels;
 
     private ImageMetaData metaData;
+    private Lock readLock = new ReentrantLock();
 
     public ImageLoader(String imageFileName, String labelFileName, int batchSize) {
         this.imageFileName = imageFileName;
@@ -98,7 +101,7 @@ public class ImageLoader implements Loader {
             throw new LoaderException("Unable to read " + imageFileName, e);
         }
         metaData.setExpectedSize(expectedSize);
-        metaData.setNumberBathes((int)Math.ceil((double)numberItems/batchSize)); //if we got incomplete last batch so it won't be missed
+        metaData.setNumberBathes((int)Math.ceil((double)numberItems/batchSize)); //if we got incomplete last batch, so it won't be missed
 
         return metaData;
     }
@@ -110,6 +113,75 @@ public class ImageLoader implements Loader {
 
     @Override
     public BatchData readBatch() {
-        return null;
+        readLock.lock();
+        try {
+            ImageBatchData batchData = new ImageBatchData();
+
+            int inputItemsRead = readInputBatch(batchData);
+            int expectedItemsRead = readExpectedBatch(batchData);
+
+            if (inputItemsRead != expectedItemsRead){
+                throw new LoaderException("Mismatch between images read and labels read");
+            }
+            metaData.setItemsRead(inputItemsRead);
+
+            return batchData;
+        } finally {
+            readLock.unlock();
+        }
+    }
+
+    private int readExpectedBatch(ImageBatchData batchData) {
+        try {
+            int totalItemsRead = metaData.getTotalItemsRead();
+            int numberItems = metaData.getNumberItems();
+
+            int numberToRead = Math.min(numberItems - totalItemsRead, batchSize);
+            byte[] labelData = new byte[numberToRead];
+            int expectedSize = metaData.getExpectedSize();
+
+            int numberRead = dsLabels.read(labelData, 0, numberToRead);
+            if (numberRead != numberToRead){
+                throw new LoaderException("Couldn't read sufficient bytes from label data");
+            }
+            double[] data = new double[numberToRead * expectedSize];
+            for (int i = 0; i < numberToRead; i++) {
+                byte label = labelData[i]; //literally a number 0..9
+
+                data[i * expectedSize + label] = 1;
+            }
+            batchData.setExpectedBatch(data);
+            return numberToRead;
+        } catch (IOException e) {
+            throw new LoaderException("Error occurred reading label data", e);
+        }
+    }
+
+    private int readInputBatch(ImageBatchData batchData) {
+        try {
+            int totalItemsRead = metaData.getTotalItemsRead();
+            int numberItems = metaData.getNumberItems();
+
+            int numberToRead = Math.min(numberItems - totalItemsRead, batchSize);
+            int inputSize = metaData.getInputSize();
+            int numberBytesToRead = numberToRead * inputSize;
+
+            byte[] imageData = new byte[numberBytesToRead];
+
+            int numberRead = dsImages.read(imageData, 0, numberBytesToRead);
+            if (numberRead != numberBytesToRead){
+                throw new LoaderException("Couldn't read sufficient bytes from image data");
+            }
+
+            double[] data = new double[numberBytesToRead];
+            for (int i = 0; i < numberBytesToRead; i++) {
+                data[i] = (imageData[i] & 0xFF)/256.0;
+            }
+            batchData.setInputBatch(data);
+
+            return numberToRead;
+        } catch (IOException e) {
+            throw new LoaderException("Error occurred reading image data", e);
+        }
     }
 }

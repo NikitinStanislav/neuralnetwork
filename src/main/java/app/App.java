@@ -1,20 +1,25 @@
 package app;
 
+import neuralnetwork.loader.BatchData;
 import neuralnetwork.loader.Loader;
+import neuralnetwork.loader.MetaData;
 import neuralnetwork.loader.image.ImageLoader;
 
 import java.io.File;
-import java.io.IOException;
 
 public class App {
     public static void main(String[] args) {
 
-        if (args.length == 0 || !new File(args[0]).isDirectory()){
+        if (args.length == 0){
             System.out.println("Usage: [app] <MNIST DATA DIRECTIY>");
             return;
         }
 
         String directory = args[0];
+        if (!new File(directory).isDirectory()){
+            System.out.println("'"+directory+"' is not a directory");
+        }
+
 //        try {
 //            System.out.println(new File(args[0]).getCanonicalPath());
 //        } catch (Exception e){}
@@ -28,9 +33,11 @@ public class App {
         Loader testLoader = new ImageLoader(testImages, testLabels, 32);
 
         trainLoader.open();
-        testLoader.open();
+        MetaData metaData = testLoader.open();
 
-
+        for (int i = 0; i < metaData.getNumberBathes(); i++) {
+            BatchData batchData = testLoader.readBatch();
+        }
 
         trainLoader.close();
         testLoader.close();
