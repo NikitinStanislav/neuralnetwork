@@ -1,17 +1,21 @@
 package app;
 
-import neuralnetwork.loader.BatchData;
+import neuralnetwork.NeuralNetwork;
+import neuralnetwork.Transform;
 import neuralnetwork.loader.Loader;
 import neuralnetwork.loader.MetaData;
 import neuralnetwork.loader.image.ImageLoader;
+import neuralnetwork.loader.test.TestLoader;
 
 import java.io.File;
+import java.lang.reflect.Member;
 
 public class App {
     public static void main(String[] args) {
+        final String fileName = "mnistNeural1.net";
 
         if (args.length == 0){
-            System.out.println("Usage: [app] <MNIST DATA DIRECTIY>");
+            System.out.println("Usage: [app] <MNIST DATA DIRECTORY>");
             return;
         }
 
@@ -32,14 +36,39 @@ public class App {
         Loader trainLoader = new ImageLoader(trainImages, trainLabels, 32);
         Loader testLoader = new ImageLoader(testImages, testLabels, 32);
 
-        trainLoader.open();
-        MetaData metaData = testLoader.open();
+        MetaData metaData = trainLoader.open();
+        int inputSize = metaData.getInputSize();
+        int outputSize = metaData.getExpectedSize();
+        trainLoader.close();
 
-        for (int i = 0; i < metaData.getNumberBathes(); i++) {
-            BatchData batchData = testLoader.readBatch();
+        NeuralNetwork neuralNetwork = NeuralNetwork.load(fileName);
+
+        if (neuralNetwork == null) {
+            System.out.println("Unable to load neural network from saved, creating a new one");
+
+            neuralNetwork = new NeuralNetwork();
+            neuralNetwork.setScaleInitialWeights(0.02);
+            neuralNetwork.setThreads(4);
+            neuralNetwork.setEpochs(50);
+            neuralNetwork.setLearningRates(0.02, 0.001);
+
+            neuralNetwork.add(Transform.DENSE, 200, inputSize);
+            neuralNetwork.add(Transform.RELU);
+            neuralNetwork.add(Transform.DENSE, outputSize);
+            neuralNetwork.add(Transform.SOFTMAX);
+
+        } else {
+            System.out.println("Loaded from " + fileName);
         }
 
-        trainLoader.close();
-        testLoader.close();
+        System.out.println(neuralNetwork);
+
+        neuralNetwork.fit(trainLoader, testLoader);
+
+        if (neuralNetwork.save(fileName)) {
+            System.out.println("Saved to " + fileName);
+        } else {
+            System.out.println("Unable to save to " + fileName);
+        }
     }
 }

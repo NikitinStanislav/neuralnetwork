@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6791507-684c-43af-96b3-32434b9a3984" name="Changes" comment="38 - App renamed to GeneratedDataApp, MNIST loaded, MetaData stored">
-      <change afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/loader/image/ImageBatchData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/loader/image/ImageWriter.java" afterDir="false" />
+    <list default="true" id="f6791507-684c-43af-96b3-32434b9a3984" name="Changes" comment="39 - reading images and labels, montage images and labels">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neuralnetwork/Engine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/Engine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neuralnetwork/NeuralNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/NeuralNetwork.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/neuralnetwork/loader/image/ImageLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/loader/image/ImageLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/neuralnetwork/loader/image/ImageMetaData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/loader/image/ImageMetaData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/neuralnetwork/loader/image/ImageWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/neuralnetwork/loader/image/ImageWriter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -208,7 +208,8 @@
       <workItem from="1726011442406" duration="10486000" />
       <workItem from="1726101101773" duration="600000" />
       <workItem from="1726323029395" duration="12271000" />
-      <workItem from="1726410124646" duration="1629000" />
+      <workItem from="1726410124646" duration="1988000" />
+      <workItem from="1726527614104" duration="4697000" />
     </task>
     <task id="LOCAL-00001" summary="first push to nowhere">
       <option name="closed" value="true" />
@@ -522,7 +523,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726024763090</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="39 - reading images and labels, montage images and labels">
+      <option name="closed" value="true" />
+      <created>1726413363089</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1726413363089</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -561,7 +570,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="15 - Mocked untrained network" />
     <MESSAGE value="17 - Cross entropy&#10;&#10;(cherry picked from commit 0e8eca7c682949c7b83a9865d8868266bb59267d)" />
     <MESSAGE value="16 - Engine with Mocked untrained network" />
     <MESSAGE value="17 - Cross entropy" />
@@ -586,18 +594,8 @@
     <MESSAGE value="36 - implementing RunBatch" />
     <MESSAGE value="37 - Multithreading, save/load file" />
     <MESSAGE value="38 - App renamed to GeneratedDataApp, MNIST loaded, MetaData stored" />
-    <option name="LAST_COMMIT_MESSAGE" value="38 - App renamed to GeneratedDataApp, MNIST loaded, MetaData stored" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/neuralnetwork/loader/image/ImageWriter.java</url>
-          <line>31</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="39 - reading images and labels, montage images and labels" />
+    <option name="LAST_COMMIT_MESSAGE" value="39 - reading images and labels, montage images and labels" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

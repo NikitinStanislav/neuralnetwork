@@ -1,5 +1,6 @@
 package neuralnetwork.loader.image;
 
+import neuralnetwork.NeuralNetwork;
 import neuralnetwork.loader.BatchData;
 import neuralnetwork.loader.Loader;
 import neuralnetwork.loader.MetaData;
@@ -9,6 +10,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
 public class ImageWriter {
     public static void main(String[] args) {
@@ -27,15 +29,25 @@ public class ImageWriter {
 
     private int convertOneHotToInt(double[] labelData, int offset, int oneHotSize){
 
+        double maxValue = 0;
+        int maxIndex = 0;
+
         for (int i = 0; i < oneHotSize; i++) {
+            if (labelData[offset+i] > maxValue){
+                maxValue = labelData[offset+i];
+                maxIndex = i;
+            }
+        }
+
+       /* for (int i = 0; i < oneHotSize; i++) {
             //System.out.print(labelData[offset + i] + " ");
             if((Math.abs(labelData[offset+i] - 1)) < 0.001){
                 return i;
             }
-        }
+        }*/
 
         //throw new RuntimeException("Invalid one hot vector");
-        return 0;
+        return maxIndex;
     }
 
     private void run(String directory) {
@@ -52,6 +64,8 @@ public class ImageWriter {
         ImageLoader loader = testLoader;
 
         ImageMetaData metaData = loader.open();
+
+        NeuralNetwork neuralNetwork = NeuralNetwork.load("mnistNeural0.net");
 
         int imageWidth = metaData.getWidth();
         int imageHeight = metaData.getHeight();
@@ -75,10 +89,24 @@ public class ImageWriter {
             String montagePath = String.format("montage%d.jpg", i);
             System.out.println("Writing "+ montagePath);
 
-            BufferedImage montage = new BufferedImage(canvasWidth, canvasHeight, BufferedImage.TYPE_BYTE_GRAY);
+            BufferedImage montage = new BufferedImage(canvasWidth, canvasHeight, BufferedImage.TYPE_INT_RGB);
 
             double[] pixelData = batchData.getInputBatch();
+            double[] labelData = batchData.getExpectedBatch();
+
             int imageSize = imageHeight * imageWidth;
+            boolean[] correct = new boolean[numberOfImages];
+
+            for (int j = 0; j <numberOfImages; j++) {
+                double[] singleImage = Arrays.copyOfRange(pixelData, j * imageSize, (j + 1) * imageSize);
+                double[] singleLabel = Arrays.copyOfRange(labelData, j * labelSize, (j + 1) * labelSize);
+
+                double[] predictedLabel = neuralNetwork.predict(singleImage);
+                int predicted = convertOneHotToInt(predictedLabel, 0, labelSize);
+                int actual = convertOneHotToInt(singleLabel, 0, labelSize);
+
+                correct[j] = predicted == actual;
+            }
 
             for (int pixelIndex = 0; pixelIndex < pixelData.length; pixelIndex++) {
                 int imageNumber = pixelIndex / imageSize;
@@ -95,7 +123,13 @@ public class ImageWriter {
 
                 double pixelValue = pixelData[pixelIndex];
                 int color = (int)(0x100 * pixelValue);
-                int pixelColor = (color << 16) + (color << 8) + color;
+                int pixelColor = 0;// (color << 16) + (color << 8) + color;
+
+                if (correct[imageNumber]){
+                    pixelColor = (color << 16) + (color << 8) + color;
+                } else {
+                    pixelColor = (color << 16);// + (color << 8) + color;
+                }
 
                 montage.setRGB(x, y, pixelColor);
             }
@@ -106,7 +140,6 @@ public class ImageWriter {
                 throw new LoaderException("Image is not written" ,e);
             }
 
-            double[] labelData = batchData.getExpectedBatch();
             StringBuilder sb = new StringBuilder();
 
             for (int labelIndex = 0; labelIndex < numberOfImages; labelIndex++) {

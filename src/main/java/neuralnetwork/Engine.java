@@ -20,6 +20,10 @@ public class Engine implements Serializable {
 
     public void setScaleInitialWeights(double scaleInitialWeights) {
         this.scaleInitialWeights = scaleInitialWeights;
+
+        if (weights.size() != 0){
+            throw new RuntimeException("Must call a setScaleInitialWeights before adding Transforms");
+        }
     }
 
     public void adjust(BatchResult batchResult, double learningRate){
@@ -40,7 +44,7 @@ public class Engine implements Serializable {
             var weightAdjust = error.multiply(input.transpose());
             var biasAdjust = error.averageColumn();
 
-            double rate = learningRate/weight.getColumns();
+            double rate = learningRate/input.getColumns();
             //double rate = learningRate/input.getColumns();
 
             //System.out.println(weight);

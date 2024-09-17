@@ -74,7 +74,7 @@ public class ImageLoader implements Loader {
                 throw new LoaderException("Magic label number of " + labelFileName + " is not verified");
             }
             numberItems = dsLabels.readInt();
-            System.out.println("Number labels: " + numberItems);
+            //System.out.println("Number labels: " + numberItems);
 
             metaData.setNumberItems(numberItems);
         } catch (IOException e) {
@@ -87,7 +87,7 @@ public class ImageLoader implements Loader {
                 throw new LoaderException("Magic image number of" + imageFileName + " is not verified");
             }
             numberItems = dsImages.readInt();
-            System.out.println("Number images: " + numberItems);
+            //System.out.println("Number images: " + numberItems);
             int height = dsImages.readInt();
             int width = dsImages.readInt();
             if (height != width || height != imagePixelSize) {
